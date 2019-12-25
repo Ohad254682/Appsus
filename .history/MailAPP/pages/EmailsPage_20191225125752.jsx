@@ -15,6 +15,7 @@ export default class EmailsPage extends React.Component {
     render() {
         return (
             <section>
+                <p>List Here:</p>
                 <EmailList emails={this.state.emails}></EmailList>
             </section>
         )

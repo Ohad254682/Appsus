@@ -8,14 +8,14 @@ export default class EmailsPage extends React.Component {
     }
 
     componentDidMount() {
-        EmailsService.getEmails()
-            .then(emails => this.setState({ emails }))
+        EmailsService.getEmails
     }
 
     render() {
         return (
             <section>
-                <EmailList emails={this.state.emails}></EmailList>
+                <p>List Here:</p>
+                <EmailList></EmailList>
             </section>
         )
     }
