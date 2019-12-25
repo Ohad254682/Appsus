@@ -1,6 +1,6 @@
 export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
-import StorageService from 'storageService.jsx';
-import Email from 'Email.jsx'
+import StorageService from './storageService.jsx';
+import Email from './Email.js'
 
 const gEmails = StorageService.load('gEmails') || createEmails();
 
