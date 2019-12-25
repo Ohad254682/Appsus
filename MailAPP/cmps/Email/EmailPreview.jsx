@@ -13,7 +13,6 @@ export default class EmailPreview extends React.Component {
     MarkUnread = () => {
         this.props.unread.forEach(mail => {
             if (mail.id == this.props.email.id) {
-
                 this.setState({ isUnread: 'black' })
             }
         })
@@ -25,6 +24,8 @@ export default class EmailPreview extends React.Component {
     }
 
     render() {
+        console.log(this.props.email);
+        
         return (
             <li className="email-preview">
                 <h2 className={this.state.isUnread}>{this.props.email.subject}</h2>

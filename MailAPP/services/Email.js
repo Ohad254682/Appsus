@@ -1,12 +1,12 @@
 import { getRandomId } from "./utils.js";
 export default class Email {
 
-    constructor(subject, body, isRead, sentAt) {
+    constructor(subject, body) {
         
         this.subject = subject;
         this.body = body;
-        this.isRead = isRead;
-        this.sentAt = sentAt;
+        this.isRead = false;
+        this.sentAt = Date.now();
         this.id = getRandomId();
     }
 }

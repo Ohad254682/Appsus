@@ -28,11 +28,9 @@ function createEmails() {
 
 
 function addEmail(email) {
-    debugger;
-    var newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
+    var newEmail = new Email(email.subject, email.body)
     gEmails = [...gEmails, newEmail]
     storageService.store('gEmails', gEmails)
-
     return Promise.resolve(newEmail)
 }
 

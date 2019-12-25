@@ -16,7 +16,7 @@ class App extends React.Component {
                     <NavMain></NavMain>
                     <Switch>
                         <Route component={Home} path="/" exact></Route>
-                        <Route component={EmailsPage} path="/emailapp" exact></Route>
+                        <Route component={EmailsPage} path="/emailapp"></Route>
                     </Switch>
                 </Router>
             </main>

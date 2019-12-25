@@ -17,7 +17,7 @@ export default class EmailDetails extends React.Component {
 
     loadEmail() {
         const { id } = this.props.match.params;
-        EmailsService.getEmailById(+id).then(email => {
+        EmailsService.getEmailById(id).then(email => {
             this.setState({ email })
         })
     }

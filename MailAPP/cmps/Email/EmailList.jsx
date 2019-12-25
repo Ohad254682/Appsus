@@ -2,7 +2,6 @@ import EmailPreview from "./EmailPreview.jsx";
 
 export default function EmailList(props) {
 
-
     return props.unread.length && <ul>
         <h3>Unread emails: {props.unread.length}</h3>
         {props.emails.map((email, i) => {
