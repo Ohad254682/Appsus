@@ -7,23 +7,13 @@ export default class EmailPreview extends React.Component {
     }
 
     componentDidMount() {
-        this.MarkUnread();
-    }
-
-    MarkUnread = () => {
-        console.log(this.props.unread)
         this.props.unread.forEach(mail => {
-            console.log(mail.id);
-            console.log(this.props.email.id);
-            if (mail.id == this.props.email.id) {
-
+            if (mail.id === this.props.email.id)
                 this.setState({ isUnread: 'black' })
-            }
         })
     }
 
     onDeleteMail = () => {
-        console.log(this.props.unread);
         this.props.onDeleteMail(this.props.email.id);
     }
 

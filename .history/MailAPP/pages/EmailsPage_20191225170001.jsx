@@ -21,7 +21,7 @@ export default class EmailsPage extends React.Component {
 
     loadUnreadEmails() {
         EmailsService.getUnreadEmails()
-            .then(unreadEmails => this.setState({ unreadEmails }))
+            .then(unreadEmails => this.setState({ unreadEmails }, console.log))
     }
 
     loadEmails = () => {

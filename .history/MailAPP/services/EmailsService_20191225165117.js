@@ -42,7 +42,7 @@ function deleteEmail(emailId) {
 
 function getUnreadEmails() {
     let unreadEmails = getEmails().
-        then(emails => emails.filter(email=>!email.isRead))
+        then(emails => emails.filter(!email.isRead))
 
     return Promise.resolve(unreadEmails);
 

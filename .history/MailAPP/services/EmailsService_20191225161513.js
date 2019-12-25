@@ -2,7 +2,7 @@ import storageService from './storageService.js';
 import Email from 'Email.js'
 import { emailsData } from './Emails.js'
 
-export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail, getUnreadEmails }
+export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
 let gEmails = storageService.load('gEmails') || createEmails();
 
 
@@ -38,12 +38,4 @@ function deleteEmail(emailId) {
     gEmails = gEmails.filter((currEmail) => currEmail.id !== emailId)
     storageService.store('gEmails', gEmails);
     return Promise.resolve(true)
-}
-
-function getUnreadEmails() {
-    let unreadEmails = getEmails().
-        then(emails => emails.filter(email=>!email.isRead))
-
-    return Promise.resolve(unreadEmails);
-
 }

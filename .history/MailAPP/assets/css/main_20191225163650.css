@@ -15,7 +15,6 @@ ul {
 .email-preview {
     display: flex;
     justify-content: space-around;
-    flex-direction:column;
 }
 
 a{
@@ -35,17 +34,4 @@ a{
 .email-details h2{
     border:gray 1px solid;
     margin:0px;
-}
-
-.email-preview h2{
-    color:gray;
-}
-
-button{
-    width:100px;
-    height:30px;
-}
-
-.email-preview .black{
-    color:black
 }

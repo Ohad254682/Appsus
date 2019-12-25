@@ -11,7 +11,6 @@ export default class EmailPreview extends React.Component {
     }
 
     MarkUnread = () => {
-        console.log(this.props.unread)
         this.props.unread.forEach(mail => {
             console.log(mail.id);
             console.log(this.props.email.id);

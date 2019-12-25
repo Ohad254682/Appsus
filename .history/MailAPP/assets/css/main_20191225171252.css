@@ -41,11 +41,7 @@ a{
     color:gray;
 }
 
-button{
+.btn{
     width:100px;
-    height:30px;
-}
-
-.email-preview .black{
-    color:black
+    height:100px;
 }

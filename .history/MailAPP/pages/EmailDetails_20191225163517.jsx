@@ -36,7 +36,7 @@ export default class EmailDetails extends React.Component {
                 <div className="email-details">
                     <h2>Subject: {email.subject}</h2>
                     <p>{email.body}</p>
-                    <p>{new Date(email.sentAt).toLocaleDateString()}</p>
+                    <p>read At: {email.readAt}</p>
                 </div>
             </section>
         )

@@ -5,7 +5,7 @@ export default class EmailsPage extends React.Component {
 
     state = {
         emails: [],
-        unreadEmails: []
+        unreadEmails:[]
     }
 
     componentDidMount() {
@@ -19,7 +19,7 @@ export default class EmailsPage extends React.Component {
 
     }
 
-    loadUnreadEmails() {
+    loadUnreadEmails(){
         EmailsService.getUnreadEmails()
             .then(unreadEmails => this.setState({ unreadEmails }))
     }
@@ -32,7 +32,7 @@ export default class EmailsPage extends React.Component {
     render() {
         return (
             <section className="email-list-container">
-                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails} ></EmailList>
+                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails} ></EmailList>
             </section>
         )
     }

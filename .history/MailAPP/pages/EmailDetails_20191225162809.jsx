@@ -17,7 +17,7 @@ export default class EmailDetails extends React.Component {
 
     loadEmail() {
         const { id } = this.props.match.params;
-        EmailsService.getEmailById(+id).then(email => {
+        EmailsService.getEmailById(id).then(email => {
             this.setState({ email })
         })
     }
@@ -35,8 +35,7 @@ export default class EmailDetails extends React.Component {
                 <button className="btn back-btn" onClick={this.onGoBack}>Back</button>
                 <div className="email-details">
                     <h2>Subject: {email.subject}</h2>
-                    <p>{email.body}</p>
-                    <p>{new Date(email.sentAt).toLocaleDateString()}</p>
+                    <p>body: {email.body}</p>
                 </div>
             </section>
         )
