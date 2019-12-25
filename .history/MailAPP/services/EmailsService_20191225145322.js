@@ -27,15 +27,15 @@ function createEmails() {
 
 
 function addEmail(email) {
-    var newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
+    const newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
     gEmails = [...gEmails, newEmail]
-    StorageService.store('gEmails', gEmails)
+    storageService.store('gEmails', gEmails)
 
     return Promise.resolve(newEmail)
 }
 
-function deleteEmail(emailId) {
-    gEmails = gEmails.filter((currEmail) => currEmail.id !== emailId)
-    StorageService.store('gEmails', gEmails);
+function deleteEmail(email) {
+    gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id)
+    storageService.store('gEmails', gEmails);
     return Promise.resolve(true)
 }

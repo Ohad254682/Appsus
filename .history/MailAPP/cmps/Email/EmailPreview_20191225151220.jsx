@@ -12,7 +12,7 @@ export default class EmailPreview extends React.Component {
             <li>
                 <button><Link to={`/email/${this.props.email.id}`}>Details</Link></button>
                 <h2>{this.props.email.subject}</h2>
-                <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
+                <h4>{this.props.email.sentAt}</h4>
                 <p>{this.props.email.body}</p>
                 <button onClick={this.onDeleteMail}>DELETE</button>
             </li>

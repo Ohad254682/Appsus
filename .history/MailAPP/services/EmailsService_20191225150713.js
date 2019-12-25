@@ -34,8 +34,8 @@ function addEmail(email) {
     return Promise.resolve(newEmail)
 }
 
-function deleteEmail(emailId) {
-    gEmails = gEmails.filter((currEmail) => currEmail.id !== emailId)
+function deleteEmail(emailID) {
+    gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id)
     StorageService.store('gEmails', gEmails);
     return Promise.resolve(true)
 }

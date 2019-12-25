@@ -35,7 +35,7 @@ function addEmail(email) {
 }
 
 function deleteEmail(emailId) {
-    gEmails = gEmails.filter((currEmail) => currEmail.id !== emailId)
+    gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id)
     StorageService.store('gEmails', gEmails);
     return Promise.resolve(true)
 }

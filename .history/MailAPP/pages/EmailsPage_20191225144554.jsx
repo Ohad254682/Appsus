@@ -8,24 +8,16 @@ export default class EmailsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.loadEmails();
-    }
-
-    onDeleteMail = (emailId) => {
-        EmailsService.deleteEmail(emailId);
-        this.loadEmails();
-
-    }
-
-    loadEmails = () => {
         EmailsService.getEmails()
             .then(emails => this.setState({ emails }))
     }
 
+    onDeleteMail()
+
     render() {
         return (
             <section>
-                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails}></EmailList>
+                <EmailList emails={this.state.emails}></EmailList>
             </section>
         )
     }

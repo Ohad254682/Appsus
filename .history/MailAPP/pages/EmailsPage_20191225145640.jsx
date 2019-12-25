@@ -11,8 +11,8 @@ export default class EmailsPage extends React.Component {
         this.loadEmails();
     }
 
-    onDeleteMail = (emailId) => {
-        EmailsService.deleteEmail(emailId);
+    onDeleteMail = (email) => {
+        EmailsService.deleteEmail(email);
         this.loadEmails();
 
     }

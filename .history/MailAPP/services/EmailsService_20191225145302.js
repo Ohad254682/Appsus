@@ -4,11 +4,11 @@ import { emailsData } from './Emails.js'
 
 export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
 
-var gEmails = StorageService.load('gEmails') || createEmails();
+const gEmails = StorageService.load('gEmails') || createEmails();
 
 
 function getEmailById(emailId) {
-    var email = gEmails.find(email => email.id === emailId)
+    const email = gEmails.find(email => email.id === emailId)
     return Promise.resolve({ ...email })
 }
 
@@ -27,15 +27,15 @@ function createEmails() {
 
 
 function addEmail(email) {
-    var newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
+    const newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
     gEmails = [...gEmails, newEmail]
-    StorageService.store('gEmails', gEmails)
+    storageService.store('gEmails', gEmails)
 
     return Promise.resolve(newEmail)
 }
 
-function deleteEmail(emailId) {
-    gEmails = gEmails.filter((currEmail) => currEmail.id !== emailId)
-    StorageService.store('gEmails', gEmails);
+function deleteEmail(email) {
+    gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id)
+    storageService.store('gEmails', gEmails);
     return Promise.resolve(true)
 }
