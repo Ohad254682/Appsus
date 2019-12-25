@@ -11,11 +11,9 @@ export default class EmailAdd extends React.Component {
         }
     }
 
-    onAddEmail = (email) => {
-        this.setState({ email : { subject: email.subject } })
-        EmailsService.addEmail(email).then(email => {
-            this.props.history.push('/email/' + email.id);
-        });
+    onAddEmail = (ev) => { 
+        ev.preventDefault()
+        EmailsService.addEmail(this.state.email).then(this.props.history.push('/'));
     }
 
     inputChange = (ev) => {
