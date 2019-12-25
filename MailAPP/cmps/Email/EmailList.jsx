@@ -1,10 +1,14 @@
-export default class Home extends React.Component {
+import EmailPreview from "./EmailPreview.jsx";
 
-    render() {
-        return (
-            <section>
-                <h1>HOME</h1>
-            </section>
-        )
-    }
+export default function EmailList(props) {
+    return (
+        <ul>
+            {/* {props.emails.map((email, i) => {
+                return (
+                    <EmailPreview key={i} email={email}/>
+                )
+            })} */}
+            <div>Preview here</div>
+            <EmailPreview/>
+        </ul>)
 }

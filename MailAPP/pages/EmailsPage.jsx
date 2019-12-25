@@ -1,9 +1,12 @@
-export default class Home extends React.Component {
+import EmailList from "../cmps/Email/EmailList.jsx";
+
+export default class EpmailsPage extends React.Component {
 
     render() {
         return (
             <section>
-                <h1>HOME</h1>
+                <p>List Here:</p>
+                <EmailList></EmailList>
             </section>
         )
     }
