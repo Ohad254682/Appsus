@@ -20,6 +20,7 @@ function getEmails(filterBy) {
 }
 
 function createEmails() {
+
     return emailsData.reduce((acc, email) => {
         return [...acc, email]
     }, [])
