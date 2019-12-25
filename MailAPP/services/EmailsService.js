@@ -1,7 +1,8 @@
-export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
 import StorageService from 'storageService.jsx';
 import Email from 'Email.js'
-import { emailsData } from 'Emails.js'
+import { emailsData } from './Emails.js'
+
+export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
 
 const gEmails = StorageService.load('gEmails') || createEmails();
 
@@ -18,8 +19,8 @@ function getEmails(filterBy) {
     return Promise.resolve([...gEmails])
 }
 
-function createEmails(emailsData) {
-    return emailsData.reduce(function (acc, email) {
+function createEmails() {
+    return emailsData.reduce((acc, email) => {
         return [...acc, email]
     }, [])
 }
