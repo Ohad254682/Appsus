@@ -1,9 +1,9 @@
-export default class Home extends React.Component {
+export default class EmailDetails extends React.Component {
 
     render() {
         return (
             <section>
-                <h1>HOME</h1>
+                Email Details
             </section>
         )
     }

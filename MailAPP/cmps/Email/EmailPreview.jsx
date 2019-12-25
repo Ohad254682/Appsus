@@ -1,10 +1,13 @@
-export default class Home extends React.Component {
+const { Link } = ReactRouterDOM
 
-    render() {
-        return (
-            <section>
-                <h1>HOME</h1>
-            </section>
+export default function EmailPreview(props) {
+    return (
+        // <Link to={`/email/${props.email.id}`}>
+            <Link to={`/email/123`}>
+            <li>
+                <p>Email Preview here:</p>
+                <h2>Subject of email</h2>
+            </li>
+        </Link>
         )
-    }
 }
