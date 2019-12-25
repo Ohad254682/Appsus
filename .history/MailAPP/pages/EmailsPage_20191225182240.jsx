@@ -19,7 +19,7 @@ export default class EmailsPage extends React.Component {
 
     }
 
-    setUnreadEmails() {
+    loadUnreadEmails() {
         EmailsService.getUnreadEmails()
             .then(unreadEmails => this.setState({ unreadEmails }))
     }
@@ -32,7 +32,7 @@ export default class EmailsPage extends React.Component {
     render() {
         return (
             <section className="email-list-container">
-                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails} loadUnread={this.loadUnreadEmails} ></EmailList>
+                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails} load={this.loadUnreadEmails} ></EmailList>
             </section>
         )
     }

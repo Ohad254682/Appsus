@@ -27,7 +27,7 @@ export default class EmailPreview extends React.Component {
     render() {
         return (
             <li className="email-preview">
-                <button onClick={this.onMarkAsRead}><Link to={`/email/${this.props.email.id}`}>Details</Link></button>
+                <button><Link to={`/email/${this.props.email.id}`}>Details</Link></button>
                 <h2 className={this.state.isUnread}>{this.props.email.subject}</h2>
                 <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 <p>{this.props.email.body}</p>
