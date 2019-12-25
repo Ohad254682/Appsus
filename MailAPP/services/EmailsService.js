@@ -1,3 +1,4 @@
+'use strict';
 import storageService from './storageService.js';
 import Email from 'Email.js'
 import { emailsData } from './Emails.js'
@@ -27,6 +28,7 @@ function createEmails() {
 
 
 function addEmail(email) {
+    debugger;
     var newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
     gEmails = [...gEmails, newEmail]
     storageService.store('gEmails', gEmails)
