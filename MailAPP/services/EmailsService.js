@@ -1,10 +1,10 @@
-import StorageService from 'storageService.jsx';
+import storageService from './storageService.js';
 import Email from 'Email.js'
 import { emailsData } from './Emails.js'
 
 export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail }
 
-const gEmails = StorageService.load('gEmails') || createEmails();
+let gEmails = storageService.load('gEmails') || createEmails();
 
 
 function getEmailById(emailId) {

@@ -4,7 +4,7 @@ import EmailsService from "../services/EmailsService.js"
 export default class EmailsPage extends React.Component {
 
     state = {
-        emails: null
+        emails: []
     }
 
     componentDidMount() {
@@ -14,7 +14,7 @@ export default class EmailsPage extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className="email-list-container">
                 <EmailList emails={this.state.emails}></EmailList>
             </section>
         )
