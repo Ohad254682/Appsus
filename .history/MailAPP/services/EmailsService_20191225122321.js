@@ -17,16 +17,13 @@ function getEmails(filterBy) {
     return Promise.resolve([...gEmails])
 }
 
-function createEmails(emailsData) {
-    return emailsData.reduce(function (acc, email) {
-        return [...acc, email]
-    }, [])
+function createEmails() {
     return new Email('hello world', 'one two three', false, Date.now());
 }
 
 
-function addEmail(email) {
-    const newEmail = new Email(email.subject, email.body, email.isRead, email.sentAt)
+function addEmail(subject, body, isRead, sentAt) {
+    const newEmail = new Email(subject, body, isRead, sentAt)
     gEmails = [...gEmails, newEmail]
     storageService.store('gEmails', gEmails)
 

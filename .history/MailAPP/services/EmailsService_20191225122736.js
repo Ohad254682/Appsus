@@ -17,10 +17,7 @@ function getEmails(filterBy) {
     return Promise.resolve([...gEmails])
 }
 
-function createEmails(emailsData) {
-    return emailsData.reduce(function (acc, email) {
-        return [...acc, email]
-    }, [])
+function createEmails() {
     return new Email('hello world', 'one two three', false, Date.now());
 }
 

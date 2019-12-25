@@ -18,9 +18,7 @@ function getEmails(filterBy) {
 }
 
 function createEmails(emailsData) {
-    return emailsData.reduce(function (acc, email) {
-        return [...acc, email]
-    }, [])
+    return forEach
     return new Email('hello world', 'one two three', false, Date.now());
 }
 

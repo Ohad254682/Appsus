@@ -19,7 +19,7 @@ function getEmails(filterBy) {
 
 function createEmails(emailsData) {
     return emailsData.reduce(function (acc, email) {
-        return [...acc, email]
+        return acc.push(email);
     }, [])
     return new Email('hello world', 'one two three', false, Date.now());
 }
