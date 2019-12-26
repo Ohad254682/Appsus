@@ -3,6 +3,9 @@ import EmailDetails from "./pages/EmailDetails.jsx";
 import SideNav from "./cmps/SideNav.jsx";
 import EmailAdd from "./pages/EmailAdd.jsx";
 
+import MainNav from "./cmps/MainNav.jsx";
+import NotesApp from "./apps/notesapp/NotesApp.jsx";
+
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
@@ -15,11 +18,14 @@ class App extends React.Component {
         return (
             <main>
                 <Router history={history}>
-                    <SideNav></SideNav>
+                    <MainNav></MainNav>
+                    
                     <Switch>
                         <Route component={EmailsPage} path="/" exact></Route>
                         <Route component={EmailDetails} path="/email/:id" exact></Route>
                         <Route component={EmailAdd} path="/add" exact></Route>
+
+                        <Route component={NotesApp} path="/notes" exact></Route>
                     </Switch>
                 </Router>
             </main>

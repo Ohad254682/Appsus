@@ -1,7 +1,6 @@
 import EmailList from "../cmps/Email/EmailList.jsx";
 import EmailsService from "../services/EmailsService.js";
 import SideNav from "../cmps/SideNav.jsx";
-import EmailAdd from "../pages/EmailAdd.jsx"
 
 export default class EmailsPage extends React.Component {
 
