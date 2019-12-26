@@ -4,6 +4,7 @@ export default class MainNav extends React.Component {
 
     render() {
         return <nav className="main-nav">
+            <img src="../assets/images/logo.png" width="100"/>
             <ul>
                 <li>
                     <NavLink to='/'>E-Mails</NavLink>

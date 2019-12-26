@@ -33,10 +33,13 @@ export default class EmailsPage extends React.Component {
 
     render() {
         return (<React.Fragment>
+            <div className="emails-page-container">
             <SideNav></SideNav>
             <section className="email-list-container">
                 <EmailList setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails}  ></EmailList>
-            </section> </React.Fragment>
+                </section>
+                </div> 
+                </React.Fragment>
         )
     }
 }
