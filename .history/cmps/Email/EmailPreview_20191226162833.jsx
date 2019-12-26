@@ -9,7 +9,7 @@ export default class EmailPreview extends React.Component {
     }
 
     componentDidMount() {
-        this.markReadUnread();
+        this.markUnread();
     }
 
     markReadUnread = () => {

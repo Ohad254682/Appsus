@@ -25,23 +25,23 @@ function getEmailById(emailId) {
 function getEmails(filterBy, filterMode) {
 
     if (filterMode === 'All') {
-        return Promise.resolve(gEmails.filter(email => {
+        if (filterBy) return Promise.resolve(gEmails.filter(email => {
             return email.subject.includes(filterBy) || email.body.includes(filterBy)
         }))
+        return Promise.resolve([...gEmails])
     }
     else if (filterMode === 'Unread') {
-        return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && !email.isRead)
+        if (filterBy) return Promise.resolve(gEmails.filter(email => {
+            return (email.subject.includes(filterBy) || email.body.includes(filterBy) && !email.isRead)
         }))
+        return Promise.resolve([...gEmails])
     }
     else {
-        {
-            return Promise.resolve(gEmails.filter(email => {
-                return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
-            }))
-        }
+
+        return Promise.resolve([...gEmails])
     }
 }
+
 function createEmails() {
     return emailsData.reduce((acc, email) => {
         console.log([...acc, email]);

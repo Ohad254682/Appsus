@@ -30,15 +30,17 @@ function getEmails(filterBy, filterMode) {
         }))
     }
     else if (filterMode === 'Unread') {
-        return Promise.resolve(gEmails.filter(email => {
+        if (filterBy) return Promise.resolve(gEmails.filter(email => {
             return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && !email.isRead)
         }))
+        return Promise.resolve([...gEmails])
     }
     else {
         {
-            return Promise.resolve(gEmails.filter(email => {
+            if (filterBy) return Promise.resolve(gEmails.filter(email => {
                 return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
             }))
+            return Promise.resolve([...gEmails])
         }
     }
 }

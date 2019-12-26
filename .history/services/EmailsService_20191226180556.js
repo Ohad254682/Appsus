@@ -33,12 +33,14 @@ function getEmails(filterBy, filterMode) {
         return Promise.resolve(gEmails.filter(email => {
             return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && !email.isRead)
         }))
+
     }
     else {
         {
             return Promise.resolve(gEmails.filter(email => {
                 return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
             }))
+
         }
     }
 }

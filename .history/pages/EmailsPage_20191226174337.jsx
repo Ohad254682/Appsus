@@ -15,7 +15,7 @@ export default class EmailsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.onLoadEmails();
+        this.loadEmails(this.state.filterBy, this.state.filterMode);
     }
 
     onSelectEmail = (email) => {
@@ -28,13 +28,13 @@ export default class EmailsPage extends React.Component {
 
     setFilterBy = (filterBy) => {
         this.setState({ filterBy },
-            this.onLoadEmails()
+            this.loadEmails(filterBy, this.state.filterMode)
         )
     }
 
     onDeleteMail = (emailId) => {
         EmailsService.deleteEmail(emailId);
-        this.onLoadEmails();
+        this.loadEmails(this.state.filterBy, this.state.filterMode);
     }
 
     loadEmails = (filterBy, filterMode) => {
@@ -49,15 +49,11 @@ export default class EmailsPage extends React.Component {
     }
 
     filterReadMails = () => {
-        this.setState({ filterMode: 'Read' }, this.loadEmails(this.state.filterBy, 'Read'))
+        this.setState({ filterMode: 'Read' }, this.onLoadEmails())
     }
 
     filterUnreadMails = () => {
-        this.setState({ filterMode: 'Unread' }, this.loadEmails(this.state.filterBy, 'Unread'))
-    }
-
-    filterAll = () => {
-        this.setState({ filterMode: 'All' }, this.loadEmails(this.state.filterBy, 'All'))
+        this.setState({ filterMode: 'Unread' })
     }
 
     startComposing = () => {
@@ -65,14 +61,14 @@ export default class EmailsPage extends React.Component {
     }
 
     stopComposing = () => {
-        this.setState({ isComposing: false }, this.onLoadEmails());
+        this.setState({ isComposing: false }, this.onLoadEmails()
     }
 
     render() {
         console.log(this.state.emails)
         return (
             <div className="emails-page-container">
-                <SideNav filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
+                <SideNav filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
                 <section className="email-list-container">
                     {this.state.isComposing && <EmailAdd stopComposing={this.stopComposing}></EmailAdd>}
                     {(this.state.selectedEmail) ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>

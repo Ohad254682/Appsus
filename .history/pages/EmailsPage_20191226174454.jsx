@@ -49,15 +49,11 @@ export default class EmailsPage extends React.Component {
     }
 
     filterReadMails = () => {
-        this.setState({ filterMode: 'Read' }, this.loadEmails(this.state.filterBy, 'Read'))
+        this.setState({ filterMode: 'Read' }, this.onLoadEmails())
     }
 
     filterUnreadMails = () => {
-        this.setState({ filterMode: 'Unread' }, this.loadEmails(this.state.filterBy, 'Unread'))
-    }
-
-    filterAll = () => {
-        this.setState({ filterMode: 'All' }, this.loadEmails(this.state.filterBy, 'All'))
+        this.setState({ filterMode: 'Unread' })
     }
 
     startComposing = () => {
@@ -72,7 +68,7 @@ export default class EmailsPage extends React.Component {
         console.log(this.state.emails)
         return (
             <div className="emails-page-container">
-                <SideNav filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
+                <SideNav filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
                 <section className="email-list-container">
                     {this.state.isComposing && <EmailAdd stopComposing={this.stopComposing}></EmailAdd>}
                     {(this.state.selectedEmail) ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>
