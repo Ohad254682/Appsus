@@ -42,9 +42,10 @@ function getEmails(filterBy, filterMode) {
     }
     else if (filterMode === 'Starred') {
         return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isStarred)
+            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
         }))
     }
+}
 }
 function createEmails() {
     return emailsData.reduce((acc, email) => {

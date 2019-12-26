@@ -35,15 +35,12 @@ function getEmails(filterBy, filterMode) {
             return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && !email.isRead)
         }))
     }
-    else if (filterMode === 'Read') {
-        return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
-        }))
-    }
-    else if (filterMode === 'Starred') {
-        return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isStarred)
-        }))
+    else if (filterMode === 'Read'){
+        {
+            return Promise.resolve(gEmails.filter(email => {
+                return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
+            }))
+        }
     }
 }
 function createEmails() {

@@ -61,7 +61,7 @@ export default class EmailsPage extends React.Component {
     }
 
     filterStarredMails=()=>{
-        this.setState({ filterMode: 'Starred' }, this.loadEmails(this.state.filterBy, 'Starred'))
+        
     }
 
     startComposing = () => {

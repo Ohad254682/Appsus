@@ -60,10 +60,6 @@ export default class EmailsPage extends React.Component {
         this.setState({ filterMode: 'All' }, this.loadEmails(this.state.filterBy, 'All'))
     }
 
-    filterStarredMails=()=>{
-        this.setState({ filterMode: 'Starred' }, this.loadEmails(this.state.filterBy, 'Starred'))
-    }
-
     startComposing = () => {
         this.setState({ isComposing: true })
     }
@@ -71,8 +67,6 @@ export default class EmailsPage extends React.Component {
     stopComposing = () => {
         this.setState({ isComposing: false }, this.onLoadEmails());
     }
-
-    
 
     render() {
         console.log(this.state.emails)

@@ -10,7 +10,7 @@ export default class SideNav extends React.Component {
                     <button onClick={this.props.filterAll}>INBOX<EmailStatus></EmailStatus></button>
                     <button onClick={this.props.filterReadMails}>Read Mails</button>
                     <button onClick={this.props.filterUnreadMails} >Unread Mails</button>
-                    <button onClick={this.props.filterStarredMails} >Starred Mails</button>
+                    <button onClick={this.props.filterUnreadMails} >Starred Mails</button>
                 </li>
             </ul>
         </nav>

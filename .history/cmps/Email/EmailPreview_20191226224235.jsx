@@ -6,7 +6,7 @@ import EventBusServices from '../../services/EventBusServices.js'
 export default class EmailPreview extends React.Component {
 
 
-    ontoggleStarred = (ev) => {
+    ontoggleStarred = () => {
         EmailsService.toggleStarred(this.props.email.id);
         this.props.onLoadEmails();
         ev.stopPropagation();
