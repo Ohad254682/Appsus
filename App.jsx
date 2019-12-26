@@ -1,10 +1,9 @@
 import EmailsPage from './pages/EmailsPage.jsx';
 import EmailDetails from "./pages/EmailDetails.jsx";
-import SideNav from "./cmps/SideNav.jsx";
 import EmailAdd from "./pages/EmailAdd.jsx";
 
 import MainNav from "./cmps/MainNav.jsx";
-import NotesApp from "./apps/notesapp/NotesApp.jsx";
+import NotesApp from "./apps/notesapp/pages/NotesApp.jsx";
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
