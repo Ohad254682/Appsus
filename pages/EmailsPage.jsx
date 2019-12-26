@@ -1,5 +1,6 @@
 import EmailList from "../cmps/Email/EmailList.jsx";
-import EmailsService from "../services/EmailsService.js"
+import EmailsService from "../services/EmailsService.js";
+import SideNav from "../cmps/SideNav.jsx";
 
 export default class EmailsPage extends React.Component {
 
@@ -31,10 +32,11 @@ export default class EmailsPage extends React.Component {
     }
 
     render() {
-        return (
+        return (<React.Fragment>
+            <SideNav></SideNav>
             <section className="email-list-container">
                 <EmailList setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails}  ></EmailList>
-            </section>
+            </section> </React.Fragment>
         )
     }
 }

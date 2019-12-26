@@ -63,6 +63,16 @@ button {
     background-color: #e3e3e3;
 }
 
+.main-nav {
+    width: 100%;
+    background-color: #e3e3e3;
+    height: unset;
+    justify-content: center;
+    padding: 20px 0; 
+}
+
+/* Mails */
+
 .compose-btn {
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
     -webkit-font-smoothing: antialiased;
