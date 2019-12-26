@@ -8,7 +8,7 @@ export default function EmailList(props) {
         <h3>{props.emails.filter(email => !email.isRead).length}</h3>
         <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>
         {props.emails.map((email, i) => {
-            return <EmailPreview onLoadEmails={props.onLoadEmails} onSelectEmail={props.onSelectEmail} onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
+            return <EmailPreview onLoadEmails={this.props.onLoadEmails} onSelectEmail={props.onSelectEmail} onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
         })}
     </ul>
 }

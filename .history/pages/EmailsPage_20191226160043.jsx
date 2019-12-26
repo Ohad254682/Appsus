@@ -64,7 +64,7 @@ export default class EmailsPage extends React.Component {
                     {this.state.isComposing && <EmailAdd stopComposing={this.stopComposing}></EmailAdd>}
                     {(this.state.selectedEmail) ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>
                         :
-                        <EmailList onLoadEmails={this.onLoadEmails} onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}
+                        <EmailList onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}
                 </section></div>
         )
     }

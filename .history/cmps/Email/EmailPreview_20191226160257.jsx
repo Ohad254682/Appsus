@@ -24,8 +24,7 @@ export default class EmailPreview extends React.Component {
 
     onMarkToUnread = (ev) => {
         EmailsService.markAsUnread(this.props.email.id);
-        this.props.onLoadEmails();
-        this.setState({ isUnread: 'black' });
+        this.props.onLoadEmails()
         ev.stopPropagation();
     }
 
