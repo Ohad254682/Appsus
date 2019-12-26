@@ -22,15 +22,31 @@ export default class NotePreview extends React.Component {
     // }
 
     switchByType = () => {
-      switch (this.state.note.type) {
+       let {note} = this.state;
+      switch (note.type) {
           case "NoteText":
-            return <p>{this.state.note.type}</p>
+            return <div>
+                <p>{note.type}</p>
+                <p>{note.info.txt}</p>
+            </div>
           case "NoteImg":
-              return <p>{this.state.note.type}</p>
+              return <div>
+                  <p>{note.type}</p>
+                  <p>{note.info.title}</p>
+                  <img src={note.info.url}/>
+              </div>
           case "NoteTodos":
-              return <p>{this.state.note.type}</p>
-          case "NoteVideo":
-              return <p>{this.state.note.type}</p>
+              let todos = note.info.todos;
+              return <div>
+                  <p>{note.type}</p>
+                  <p>{note.info.label}</p>
+                  <ul>{todos.forEach((todo)=><li>{todo}</li>)}</ul>
+              </div>
+        //   case "NoteVideo":
+        //       return <div>
+        //           <p>{this.state.note.type}</p>
+        //           <p>{this.state.note.info.txt}</p>
+        //       </div>
           default:
               return <p>{this.state.note.type}</p>
       }
@@ -40,7 +56,10 @@ export default class NotePreview extends React.Component {
         if (!this.state.note) return null;
         let type = this.switchByType();
         return <React.Fragment>
-            <div>{type} </div>  
+            
+            <article className="cards-container">
+                <div>{type}</div>  
+            </article>
         </React.Fragment>
     }
 }
