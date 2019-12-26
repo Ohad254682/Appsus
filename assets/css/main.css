@@ -233,3 +233,16 @@ input[type="text"] {
     margin: auto;
     padding-top: 40px;
 }
+
+article.cards-container {
+    max-width: 400px;
+    background-color: cornsilk;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+article.cards-container img {
+    max-width: 250px;
+}

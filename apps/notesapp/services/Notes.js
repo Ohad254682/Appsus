@@ -10,7 +10,7 @@ export const notesData = [
     {
         type: "NoteImg",
         info: {
-            url: "https://en.wikipedia.org/wiki/Sea_otter#/media/File:Sea_Otter_(Enhydra_lutris)_(25169790524)_crop.jpg",
+            url: "../../../assets/images/Sea_Otter.jpg",
             title: "Me playing Mi"
         },
         style: {
