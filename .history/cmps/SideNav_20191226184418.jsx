@@ -1,5 +1,5 @@
 
-import EmailStatus from 'Email/EmailStatus.jsx';
+
 export default class SideNav extends React.Component {
 
     render() {
@@ -7,9 +7,9 @@ export default class SideNav extends React.Component {
             <ul>
                 <li>
                     <button className="compose-btn" onClick={this.props.startComposing}>Compose +</button>
-                    <button onClick={this.props.filterAll}>INBOX<EmailStatus></EmailStatus></button>
+                    <button onClick={this.props.filterAll}>INBOX</button>
                     <button onClick={this.props.filterReadMails}>Read Mails</button>
-                    <button onClick={this.props.filterUnreadMails} >Unread Mails</button>
+                    <button onClick={this.props.filterUnreadMails} >Unread Mails<p>({this.props.emails.filter(email => !email.isRead).length})</p></button>
                 </li>
             </ul>
         </nav>
