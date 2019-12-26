@@ -5,34 +5,35 @@ export default class EmailsPage extends React.Component {
 
     state = {
         emails: [],
-        unreadEmails: []
+        filterBy: ''
     }
 
     componentDidMount() {
-        this.loadEmails();
-        this.loadUnreadEmails();
+        this.loadEmails(this.state.filterBy);
+    }
+
+    setFilterBy = (filterBy) => {
+        this.setState({ filterBy }, this.loadEmails(filterBy))
     }
 
     onDeleteMail = (emailId) => {
         EmailsService.deleteEmail(emailId);
         this.loadEmails();
+        this.loadUnreadEmails();
 
     }
 
-    loadUnreadEmails() {
-        EmailsService.getUnreadEmails()
-            .then(unreadEmails => this.setState({ unreadEmails }))
-    }
-
-    loadEmails = () => {
-        EmailsService.getEmails()
-            .then(emails => this.setState({ emails }))
+    loadEmails = (filterBy) => {
+        EmailsService.getEmails(filterBy)
+            .then(emails => {
+                this.setState({ emails })
+            })
     }
 
     render() {
         return (
             <section className="email-list-container">
-                <EmailList onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails} loadUnread={this.loadUnreadEmails} ></EmailList>
+                <EmailList setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails} unread={this.state.unreadEmails}  ></EmailList>
             </section>
         )
     }

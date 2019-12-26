@@ -1,11 +1,14 @@
 import EmailPreview from "./EmailPreview.jsx";
+import EmailSearch from "./EmailSearch.jsx"
 
 export default function EmailList(props) {
 
-    return props.unread.length && <ul>
-        <h3>Unread emails: {props.unread.length}</h3>
+
+    return <ul>
+        <h3>{props.emails.filter(email => !email.isRead).length}</h3>
+        <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>
         {props.emails.map((email, i) => {
-            return <EmailPreview onDeleteMail={props.onDeleteMail} loadUnread={props.loadUnread} key={i} email={email} unread={props.unread}></EmailPreview>
+            return <EmailPreview onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
         })}
     </ul>
 }

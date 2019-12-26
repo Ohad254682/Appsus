@@ -3,13 +3,13 @@ import storageService from './storageService.js';
 import Email from 'Email.js'
 import { emailsData } from './Emails.js'
 
-export default { 
-    getEmailById, 
-    getEmails, 
-    createEmails, 
-    addEmail, 
-    deleteEmail, 
-    getUnreadEmails 
+export default {
+    getEmailById,
+    getEmails,
+    createEmails,
+    addEmail,
+    deleteEmail,
+    markAsRead
 
 }
 
@@ -24,7 +24,7 @@ function getEmailById(emailId) {
 
 function getEmails(filterBy) {
     if (filterBy) return Promise.resolve(gEmails.filter(email => {
-        return email.subject.includes(filterBy.subject) && email.body.includes(filterBy.body)
+        return email.subject.includes(filterBy) || email.body.includes(filterBy)
     }))
     return Promise.resolve([...gEmails])
 }
@@ -32,7 +32,7 @@ function getEmails(filterBy) {
 function createEmails() {
     return emailsData.reduce((acc, email) => {
         console.log([...acc, email]);
-        
+
         return [...acc, email]
     }, [])
 }
@@ -40,9 +40,9 @@ function createEmails() {
 
 function addEmail(email) {
     console.log('servie');
-    
+
     console.log(email);
-    
+
     var newEmail = new Email(email.subject, email.body)
     gEmails = [...gEmails, newEmail]
     storageService.store('gEmails', gEmails)
@@ -55,10 +55,11 @@ function deleteEmail(emailId) {
     return Promise.resolve(true)
 }
 
-function getUnreadEmails() {
-    let unreadEmails = getEmails().
-        then(emails => emails.filter(email=>!email.isRead))
-
-    return Promise.resolve(unreadEmails);
-
+function markAsRead(emailId) {
+    gEmails.forEach(email => {
+        if (email.id === emailId) {
+            email.isRead = true;
+        }
+    })
+    storageService.store('gEmails', gEmails);
 }

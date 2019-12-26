@@ -1,5 +1,7 @@
 const { Link } = ReactRouterDOM
 
+import EmailsService from "../../services/EmailsService.js";
+
 export default class EmailPreview extends React.Component {
 
     state = {
@@ -7,25 +9,28 @@ export default class EmailPreview extends React.Component {
     }
 
     componentDidMount() {
-        this.MarkUnread();
+        this.markUnread();
     }
 
-    MarkUnread = () => {
-        this.props.unread.forEach(mail => {
+    markUnread = () => {
+        let unreadEmails = this.props.emails.filter(email => !email.isRead);
+        unreadEmails.forEach(mail => {
             if (mail.id == this.props.email.id) {
+
                 this.setState({ isUnread: 'black' })
             }
         })
     }
 
+    onMarkAsRead = () => {
+        EmailsService.markAsRead(this.props.email.id);
+    }
+
     onDeleteMail = () => {
-        // console.log(this.props.unread);
         this.props.onDeleteMail(this.props.email.id);
     }
 
     render() {
-        // console.log(this.props.email);
-        
         return (
             <li className="email-preview">
                 <h2 className={this.state.isUnread}>{this.props.email.subject}</h2>
