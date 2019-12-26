@@ -17,7 +17,7 @@ export default class EmailsPage extends React.Component {
         this.setState({ selectedEmail: email })
     }
 
-    removeSelectedEmail = () => {
+    removeSelected = () => {
         this.setState({ selectedEmail: '' })
     }
 
@@ -42,8 +42,7 @@ export default class EmailsPage extends React.Component {
     render() {
         return (
             <section className="email-list-container">
-                <EmailAdd></EmailAdd>
-                {this.state.selectedEmail ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>
+                {this.state.selectedEmail ? <EmailDetails email={this.state.selectedEmail}></EmailDetails>
                     :
                     <EmailList onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}
             </section>

@@ -1,6 +1,10 @@
 import EmailsService from "../services/EmailsService.js";
 export default class EmailDetails extends React.Component {
 
+    state = {
+        email: null
+    }
+
     render() {
         const { email } = this.props;
         if (!this.state.email) return <div className="loading">Loading...</div>

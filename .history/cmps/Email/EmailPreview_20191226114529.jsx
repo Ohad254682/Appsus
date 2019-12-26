@@ -30,16 +30,13 @@ export default class EmailPreview extends React.Component {
         this.props.onDeleteMail(this.props.email.id);
     }
 
-    onSelectEmail = () => {
-        this.props.onSelectEmail(this.props.email);
-    }
-
     render() {
         return (
             <li className="email-preview">
                 <h2 className={this.state.isUnread}>{this.props.email.subject}</h2>
                 <p>{this.props.email.body}</p>
-                <div className="preview-btns-container" onClick={this.onSelectEmail} onClick={this.onMarkAsRead}>
+                <div className="preview-btns-container">
+                    <Link to={`/email/${this.props.email.id}`}><button onClick={this.onMarkAsRead}>Details</button></Link>
                     <button onClick={this.onDeleteMail}>🗑️</button>
                     <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 </div>

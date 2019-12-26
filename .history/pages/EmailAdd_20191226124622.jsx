@@ -36,6 +36,7 @@ export default class EmailAdd extends React.Component {
 
                     <button type="submit" className="btn btn-send" onClick={this.onAddEmail}>Send</button>
                 </div>
+                {/* <button onClick={this.onDelete}>Delete</button> */}
             </div>
         </React.Fragment>
     }

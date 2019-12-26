@@ -6,7 +6,7 @@ export default class SideNav extends React.Component {
         return <nav>
             <ul>
                 <li>
-                <button className="compose-btn">Compose +</button>
+                    <EmailAdd><button className="compose-btn">Compose +</button></EmailAdd>
                 </li>
             </ul>
         </nav>
