@@ -6,21 +6,20 @@ import EventBusServices from '../../services/EventBusServices.js'
 export default class EmailPreview extends React.Component {
 
     state = {
-        isUnread: ''
     }
 
-    // componentDidMount() {
-    //     this.markReadUnread();
-    // }
-    // componentDidUpdate() {
-    //     if (this.props.email.id !== this.props.email.isRead)
-    //         this.markReadUnread();
-    // }
+    componentDidMount() {
+        this.markReadUnread();
+    }
+    componentDidUpdate() {
+        if (this.prevProps.email.isRead !== this.props.email.isRead)
+            this.markReadUnread();
+    }
 
-    // markReadUnread = () => {
-    //     this.props.email.isRead ? this.setState({ isUnread: 'gray' }) : this.setState({ isUnread: 'black' })
+    markReadUnread = () => {
+        this.props.email.isRead ? this.setState({ isUnread: 'gray' }) : this.setState({ isUnread: 'black' })
 
-    // }
+    }
 
     onMarkToUnread = (ev) => {
         EmailsService.markAsUnread(this.props.email.id);
@@ -47,8 +46,8 @@ export default class EmailPreview extends React.Component {
 
     render() {
         return (
-            <li className="email-preview" onClick={this.onSelectEmail}>
-                <h2 className={this.props.email.isRead ? "gray" : "black"}>{this.props.email.subject}</h2>
+            <li {...this.props.email.isRead ? className="gray" : className="black"} className="email-preview" onClick={this.onSelectEmail}>
+                <h2 className={this.state.isUnread}>{this.props.email.subject}</h2>
                 <p>{this.props.email.body}</p>
                 <div className="preview-btns-container" >
                     <button onClick={this.onDeleteMail}>🗑️</button>
