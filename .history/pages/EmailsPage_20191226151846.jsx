@@ -48,7 +48,7 @@ export default class EmailsPage extends React.Component {
     }
 
     stopComposing = () => {
-        this.setState({ isComposing: false }, this.loadEmails())
+        this.setState({ isComposing: false }, this.loadEmails(''))
     }
 
     render() {

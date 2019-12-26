@@ -1,4 +1,4 @@
-
+const { Link } = ReactRouterDOM
 
 import EmailsService from "../../services/EmailsService.js";
 
@@ -22,19 +22,12 @@ export default class EmailPreview extends React.Component {
         })
     }
 
-    onMarkToUnread = (ev) => {
-        EmailsService.markAsUnread(this.props.email.id);
-        this.setState({ isUnread: 'black' });
-        ev.stopPropagation();
-    }
-
     onMarkAsRead = () => {
         EmailsService.markAsRead(this.props.email.id);
     }
 
-    onDeleteMail = (ev) => {
+    onDeleteMail = () => {
         this.props.onDeleteMail(this.props.email.id);
-        ev.stopPropagation();
     }
 
     onSelectEmail = () => {
@@ -49,7 +42,6 @@ export default class EmailPreview extends React.Component {
                 <p>{this.props.email.body}</p>
                 <div className="preview-btns-container" >
                     <button onClick={this.onDeleteMail}>🗑️</button>
-                    <button onClick={this.onMarkToUnread}>✉</button>
                     <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 </div>
             </li>

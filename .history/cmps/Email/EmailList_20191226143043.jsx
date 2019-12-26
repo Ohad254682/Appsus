@@ -3,12 +3,13 @@ import EmailSearch from "./EmailSearch.jsx"
 
 export default function EmailList(props) {
 
+    console.log(props.emails);
 
     return <ul>
         <h3>{props.emails.filter(email => !email.isRead).length}</h3>
         <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>
         {props.emails.map((email, i) => {
-            return <EmailPreview onToogleReadMode={props.onToogleReadMode} onSelectEmail={props.onSelectEmail} onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
+            return <EmailPreview onSelectEmail={props.onSelectEmail} onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
         })}
     </ul>
 }

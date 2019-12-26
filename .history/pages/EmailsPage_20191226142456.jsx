@@ -26,9 +26,7 @@ export default class EmailsPage extends React.Component {
     }
 
     setFilterBy = (filterBy) => {
-        this.setState({ filterBy },
-            this.loadEmails(filterBy)
-        )
+        this.setState({ filterBy }, this.loadEmails(filterBy))
     }
 
     onDeleteMail = (emailId) => {
@@ -48,11 +46,10 @@ export default class EmailsPage extends React.Component {
     }
 
     stopComposing = () => {
-        this.setState({ isComposing: false }, this.loadEmails())
+        this.setState({ isComposing: false })
     }
 
     render() {
-        console.log(this.state.emails)
         return (
             <div className="emails-page-container">
                 <SideNav startComposing={this.startComposing}></SideNav>

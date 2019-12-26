@@ -1,4 +1,4 @@
-
+import EmailsService from "../services/EmailsService.js";
 export default class EmailDetails extends React.Component {
 
     render() {

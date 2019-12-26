@@ -9,8 +9,8 @@ export default {
     createEmails,
     addEmail,
     deleteEmail,
-    markAsRead,
-    markAsUnread
+    markAsRead
+
 }
 
 let gEmails = storageService.load('gEmails') || createEmails();
@@ -68,7 +68,7 @@ function markAsRead(emailId) {
 function markAsUnread(emailId) {
     gEmails.forEach(email => {
         if (email.id === emailId) {
-            email.isRead = false;
+            email.isRead = true;
         }
     })
     storageService.store('gEmails', gEmails);

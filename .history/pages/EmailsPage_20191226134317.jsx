@@ -1,16 +1,14 @@
 import EmailList from "../cmps/Email/EmailList.jsx";
 import EmailsService from "../services/EmailsService.js";
 import SideNav from "../cmps/SideNav.jsx";
-import EmailAdd from "EmailAdd.jsx";
-import EmailDetails from "EmailDetails.jsx";
+import EmailAdd from "../pages/EmailAdd.jsx"
 
 export default class EmailsPage extends React.Component {
 
     state = {
         emails: [],
         filterBy: '',
-        selectedEmail: '',
-        isComposing: false
+        selectedEmail: ''
     }
 
     componentDidMount() {
@@ -26,14 +24,14 @@ export default class EmailsPage extends React.Component {
     }
 
     setFilterBy = (filterBy) => {
-        this.setState({ filterBy },
-            this.loadEmails(filterBy)
-        )
+        this.setState({ filterBy }, this.loadEmails(filterBy))
     }
 
     onDeleteMail = (emailId) => {
         EmailsService.deleteEmail(emailId);
         this.loadEmails();
+        this.loadUnreadEmails();
+
     }
 
     loadEmails = (filterBy) => {
@@ -43,21 +41,12 @@ export default class EmailsPage extends React.Component {
             })
     }
 
-    startComposing = () => {
-        this.setState({ isComposing: true })
-    }
-
-    stopComposing = () => {
-        this.setState({ isComposing: false }, this.loadEmails())
-    }
-
     render() {
-        console.log(this.state.emails)
         return (
             <div className="emails-page-container">
-                <SideNav startComposing={this.startComposing}></SideNav>
+                <SideNav></SideNav>
                 <section className="email-list-container">
-                    {this.state.isComposing && <EmailAdd loadEmails={this.loadEmails} stopComposing={this.stopComposing}></EmailAdd>}
+                    <EmailAdd></EmailAdd>
                     {(this.state.selectedEmail) ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>
                         :
                         <EmailList onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}

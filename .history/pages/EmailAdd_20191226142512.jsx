@@ -16,7 +16,7 @@ export default class EmailAdd extends React.Component {
         ev.preventDefault()
         const { subject, body } = this.state
         EmailsService.addEmail({ subject, body })
-            .then(this.props.stopComposing);
+            .then(this.props.stopComposing).then(this.props.loadEmails);
     }
 
     onInputChange = (ev) => {

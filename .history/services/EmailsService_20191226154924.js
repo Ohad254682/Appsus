@@ -9,8 +9,8 @@ export default {
     createEmails,
     addEmail,
     deleteEmail,
-    markAsRead,
-    markAsUnread
+    markAsRead
+
 }
 
 let gEmails = storageService.load('gEmails') || createEmails();

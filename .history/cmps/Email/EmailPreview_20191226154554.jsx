@@ -22,12 +22,6 @@ export default class EmailPreview extends React.Component {
         })
     }
 
-    onMarkToUnread = (ev) => {
-        EmailsService.markAsUnread(this.props.email.id);
-        this.setState({ isUnread: 'black' });
-        ev.stopPropagation();
-    }
-
     onMarkAsRead = () => {
         EmailsService.markAsRead(this.props.email.id);
     }
@@ -49,7 +43,7 @@ export default class EmailPreview extends React.Component {
                 <p>{this.props.email.body}</p>
                 <div className="preview-btns-container" >
                     <button onClick={this.onDeleteMail}>🗑️</button>
-                    <button onClick={this.onMarkToUnread}>✉</button>
+                    <button onClick={this.onChangeToUnread}>✉</button>
                     <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 </div>
             </li>
