@@ -3,7 +3,16 @@ import storageService from './storageService.js';
 import Email from 'Email.js'
 import { emailsData } from './Emails.js'
 
-export default { getEmailById, getEmails, createEmails, addEmail, deleteEmail, getUnreadEmails }
+export default { 
+    getEmailById, 
+    getEmails, 
+    createEmails, 
+    addEmail, 
+    deleteEmail, 
+    getUnreadEmails 
+
+}
+
 let gEmails = storageService.load('gEmails') || createEmails();
 
 
@@ -22,12 +31,18 @@ function getEmails(filterBy) {
 
 function createEmails() {
     return emailsData.reduce((acc, email) => {
+        console.log([...acc, email]);
+        
         return [...acc, email]
     }, [])
 }
 
 
 function addEmail(email) {
+    console.log('servie');
+    
+    console.log(email);
+    
     var newEmail = new Email(email.subject, email.body)
     gEmails = [...gEmails, newEmail]
     storageService.store('gEmails', gEmails)
