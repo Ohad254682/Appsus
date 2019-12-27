@@ -19,7 +19,7 @@ export default class AddNote extends React.Component {
     }
 
     onAddNote = (ev) => {
-        ev.preventDefault();
+        ev.preventDefault()
         let { type, textInput, urlInput } = this.state;
         // noteService.addNote({ type, textInput, urlInput }).then(() => this.setState({ type: '', textInput: '', urlInput: '' }))   
         this.props.onAddNote({ ...this.state });

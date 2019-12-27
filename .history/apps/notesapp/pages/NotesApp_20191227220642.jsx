@@ -25,7 +25,7 @@ export default class NotesApp extends React.Component {
             .then(addedNote => {
                 this.setState({ currNote: addedNote })
             })
-            .then(this.loadNotes());
+            .then(loadNotes());
     }
 
     onDeleteNote = (noteId) => {

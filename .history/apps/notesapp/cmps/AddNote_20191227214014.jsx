@@ -19,7 +19,7 @@ export default class AddNote extends React.Component {
     }
 
     onAddNote = (ev) => {
-        ev.preventDefault();
+        ev.preventDefault()
         let { type, textInput, urlInput } = this.state;
         // noteService.addNote({ type, textInput, urlInput }).then(() => this.setState({ type: '', textInput: '', urlInput: '' }))   
         this.props.onAddNote({ ...this.state });
@@ -42,13 +42,13 @@ export default class AddNote extends React.Component {
 
                     {((this.state.type === 'noteImg') || (this.state.type === 'noteVideo')) && <input type="url" name="urlInput" value={this.state.urlInput} placeholder="enter URL link" onChange={this.onInputChange} />}
 
-                    <select name="type" value={this.state.type} onChange={this.onInputChange}>
+                    <select name="type" onChange={this.onInputChange}>
                         <option value="noteTodos">To Do</option>
                         <option value="noteText">Text</option>
                         <option value="noteImg">Image</option>
                         <option value="noteVideo">Video</option>
                     </select>
-                    <button type="submit" className="send" onClick={this.onAddNote}>Add note</button>
+                    <button type="sumbit" className="send" onClick={this.onAddNote}>Add note</button>
                 </form>
             </section>
 

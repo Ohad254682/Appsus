@@ -21,11 +21,9 @@ export default class NotesApp extends React.Component {
     // }
 
     onAddNote = (addedNote) => {
-        noteService.addNote(addedNote)
-            .then(addedNote => {
-                this.setState({ currNote: addedNote })
-            })
-            .then(this.loadNotes());
+        noteService.addNote(addedNote).then(addedNote => {
+            this.setState({ currNote: addedNote })
+        });
     }
 
     onDeleteNote = (noteId) => {
@@ -45,7 +43,7 @@ export default class NotesApp extends React.Component {
                     <SearchNote />
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} />
+                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote}/>
             </div>
         </React.Fragment>
     }
