@@ -29,6 +29,17 @@ export default class NotePreview extends React.Component {
         ev.stopPropagation();
     }
 
+    onEditMode = (ev) => {
+        if (this.state.isEditMode) {
+            ev.target.removeAttribute('disabled');
+            ev.stopPropagation();
+        }
+        else {
+            ev.target.setAttribute('disabled');
+            ev.stopPropagation();
+        }
+    }
+
     onSetEditMode = () => {
         this.setState({ isEditMode: !this.state.isEditMode });
     }

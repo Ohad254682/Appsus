@@ -18,6 +18,6 @@ export default class DynamicComponent extends React.Component {
         if (!Cmp) return null
         if (!this.props.note) return null
      
-        return <Cmp onEditMode={this.props.onEditMode} note={this.props.note} isEditMode={this.props.isEditMode}></Cmp>
+        return <Cmp onEditMode={this.props.onEditMode} note={this.props.note}></Cmp>
     }
 }

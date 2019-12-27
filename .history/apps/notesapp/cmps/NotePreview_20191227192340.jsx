@@ -29,8 +29,23 @@ export default class NotePreview extends React.Component {
         ev.stopPropagation();
     }
 
-    onSetEditMode = () => {
-        this.setState({ isEditMode: !this.state.isEditMode });
+    onEditMode = (ev) => {
+        if (this.state.isEditMode) {
+            ev.target.removeAttribute('disabled');
+            ev.stopPropagation();
+        }
+        else (!this.state.isEditMode) {
+            ev.target.setAttribute('disabled');
+            ev.stopPropagation();
+        }
+    }
+
+    onEditModeDisabled = (ev) => {
+
+    }
+
+    onSetEditMode = (prevState) => {
+        this.setState({ isEditMode: !prevState.isEditMode });
     }
 
 
@@ -42,7 +57,7 @@ export default class NotePreview extends React.Component {
 
         return (
             <article className="cards-container">
-                <DynamicCmps onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode}></DynamicCmps>
+                <DynamicCmps type={type} note={note}></DynamicCmps>
                 <div className="tools-bar">
                     <button onClick={this.onSetEditMode}>Edit</button>
                     <p className="note-icon">{this.onIconOfNote()}</p>
