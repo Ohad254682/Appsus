@@ -4,8 +4,8 @@ import Video from "./Video.jsx";
 import Image from "./Image.jsx";
 
 export default {
-    text: Text,
-    todo: Todo,
-    video: Video,
-    image: Image
+    noteText: Text,
+    noteTodos: Todo,
+    noteVideo: Video,
+    noteImg: Image
 }

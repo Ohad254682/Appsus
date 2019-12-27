@@ -1,4 +1,10 @@
 export default function Todo(props) {
     // return `welcome ${props.name}`
-    return `welcome To do`
+    let todos = props.note.info.todos;
+    todos.forEach((todo)=>{console.log(todo.id)})
+    return <div>
+        <p>{props.note.type}</p>
+        <p>{props.note.info.label}</p>
+        {/* <ul>{todos.forEach((todo) => {<li key={todo.id}>{todo.txt}</li>})}</ul> */}
+    </div>
 }

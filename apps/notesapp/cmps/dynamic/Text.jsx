@@ -1,4 +1,6 @@
 export default function Text(props) {
-    // return `welcome ${props.name}`
-    return `welcome Text`
+    let text = props.note.info.txt;
+    return <div>
+        <p>{text}</p>
+    </div>
 }

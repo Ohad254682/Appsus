@@ -1,4 +1,6 @@
 export default function Image(props){
-    // return `welcome ${props.name}`
-    return `welcome Image`
+    return <div>
+                <p>{props.note.info.title}</p>
+                <img src={props.note.info.url} />
+            </div>
 }

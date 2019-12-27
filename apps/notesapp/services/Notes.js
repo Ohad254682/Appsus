@@ -1,6 +1,6 @@
 export const notesData = [
     {
-        type: "NoteText",
+        type: "noteText",
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
@@ -8,7 +8,7 @@ export const notesData = [
         id: '111aaabb'
     },
     {
-        type: "NoteImg",
+        type: "noteImg",
         info: {
             url: "../../../assets/images/Sea_Otter.jpg",
             title: "Me playing Mi"
@@ -19,14 +19,22 @@ export const notesData = [
         id: '111aaacc'
     },
     {
-        type: "NoteTodos",
+        type: "noteTodos",
         info: {
             label: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { id:'1112227', txt: "Do that", doneAt: null },
+                { id: '1112226', txt: "Do this", doneAt: 187111111 }
             ]
         },
         id: '111aaadd'
+    },
+    {
+        type: "noteVideo",
+        info: {
+            label: "You won't believe what happens next:",
+            url: "https://www.youtube-nocookie.com/embed/F3EsDDp4VXg"
+        },
+        id: '111aa22dd'
     }
 ]
