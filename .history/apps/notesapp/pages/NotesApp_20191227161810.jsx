@@ -20,7 +20,7 @@ export default class NotesApp extends React.Component {
 
     onDeleteNote = (noteId) => {
         NoteService.deleteNote(noteId);
-        this.onLoadNotes();
+        this.onLoadNotes
     }
 
     loadNotes = (filterBy) => {

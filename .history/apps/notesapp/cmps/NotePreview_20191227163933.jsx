@@ -9,17 +9,18 @@ export default class NotePreview extends React.Component {
     }
 
     componentDidMount() {
+        this.onIconOfNote();
     }
 
     onIconOfNote = () => {
-        let ICON = '';
-        switch (this.props.note.type) {
-            case 'noteText': ICON = 'A'; break;
-            case "noteImg": ICON = '🖼'; break;
-            case "noteTodos": ICON = '🖹'; break;
-            case "noteVideo": ICON = '‣'; break;
-        }
-        return ICON;
+        const ICON;
+       switch(this.props.note.type){
+           case 'noteText':icon='';break;
+           case "noteImg": return '';break;
+           case "noteTodos"
+           "noteVideo"
+
+       }
     }
 
 
@@ -37,9 +38,9 @@ export default class NotePreview extends React.Component {
         return (
             <article className="cards-container">
                 <DynamicCmps type={type} note={note}></DynamicCmps>
-                <div className="tools-bar">
-                    <p className="note-icon">{this.onIconOfNote()}</p>
-                    <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>
+                <div>
+                    <button onClick={this.onDeleteNote}>🗑️</button>
+                    <p></p>
                 </div>
             </article>
         )

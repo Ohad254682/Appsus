@@ -38,8 +38,8 @@ export default class NotePreview extends React.Component {
             <article className="cards-container">
                 <DynamicCmps type={type} note={note}></DynamicCmps>
                 <div className="tools-bar">
-                    <p className="note-icon">{this.onIconOfNote()}</p>
-                    <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>
+                    <p>{this.onIconOfNote()}</p>
+                    <button onClick={this.onDeleteNote}>🗑️</button>
                 </div>
             </article>
         )
