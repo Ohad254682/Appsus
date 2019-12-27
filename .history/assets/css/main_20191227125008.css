@@ -52,13 +52,12 @@ ul {
     list-style: none;
 }
 
-.side-nav-email {
+nav {
     min-width: 175px;
     height: 100vh;
     padding-top: 40px;
     display: flex;
     justify-content: center;
-    margin-top:30px;
 }
 
 button {
@@ -130,7 +129,6 @@ button {
 .emails-page-container {
     display: flex;
     flex-direction: row;
-    width:100%;
 }
 
 input[type="text"].searchTerm {
@@ -188,7 +186,6 @@ button.btn.star-btn {
 
 table {
     border-collapse: collapse;
-    width:100%;
 }
 
 span.read-more-button {

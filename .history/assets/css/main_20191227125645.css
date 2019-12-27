@@ -52,7 +52,7 @@ ul {
     list-style: none;
 }
 
-.side-nav-email {
+nav {
     min-width: 175px;
     height: 100vh;
     padding-top: 40px;

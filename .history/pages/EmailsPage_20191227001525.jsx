@@ -34,11 +34,11 @@ export default class EmailsPage extends React.Component {
     }
 
     onSortBySentAt = () => {
-        this.setState({ sortingStatus: 'sentAt' }, this.loadEmails(this.state.filterBy, this.state.filterMode, 'sentAt'));
+        this.setState({ sortingStatus: 'sentAt' },this.loadEmails(this.state.filterBy, this.state.sortingStatus, this.state.sortingStatus));
     }
 
     onSortBySubject = () => {
-        this.setState({ sortingStatus: 'subject' }, this.loadEmails(this.state.filterBy, this.state.filterMode, 'subject'));
+        this.setState({ sortingStatus: 'subject' });
     }
 
     onDeleteMail = (emailId) => {
@@ -84,6 +84,7 @@ export default class EmailsPage extends React.Component {
 
 
     render() {
+        console.log(this.state.emails)
         return (
             <div className="emails-page-container">
                 <SideNav filterStarredMails={this.filterStarredMails} filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>

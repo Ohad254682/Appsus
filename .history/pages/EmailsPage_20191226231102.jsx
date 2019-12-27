@@ -11,7 +11,7 @@ export default class EmailsPage extends React.Component {
         filterBy: '',
         selectedEmail: '',
         filterMode: 'All',
-        sortingStatus: 'sentAt',
+        sortingStatus:'sentAt'
         isComposing: false
     }
 
@@ -33,44 +33,36 @@ export default class EmailsPage extends React.Component {
         )
     }
 
-    onSortBySentAt = () => {
-        this.setState({ sortingStatus: 'sentAt' }, this.loadEmails(this.state.filterBy, this.state.filterMode, 'sentAt'));
-    }
-
-    onSortBySubject = () => {
-        this.setState({ sortingStatus: 'subject' }, this.loadEmails(this.state.filterBy, this.state.filterMode, 'subject'));
-    }
-
     onDeleteMail = (emailId) => {
         EmailsService.deleteEmail(emailId);
         this.onLoadEmails();
     }
 
-    loadEmails = (filterBy, filterMode, sortingStatus) => {
-        EmailsService.getEmails(filterBy, filterMode, sortingStatus)
+    loadEmails = (filterBy, filterMode) => {
+        EmailsService.getEmails(filterBy, filterMode)
             .then(emails => {
                 this.setState({ emails })
             })
     }
 
     onLoadEmails = () => {
-        this.loadEmails(this.state.filterBy, this.state.filterMode, this.state.sortingStatus);
+        this.loadEmails(this.state.filterBy, this.state.filterMode);
     }
 
     filterReadMails = () => {
-        this.setState({ filterMode: 'Read' }, this.loadEmails(this.state.filterBy, 'Read', this.state.sortingStatus))
+        this.setState({ filterMode: 'Read' }, this.loadEmails(this.state.filterBy, 'Read'))
     }
 
     filterUnreadMails = () => {
-        this.setState({ filterMode: 'Unread' }, this.loadEmails(this.state.filterBy, 'Unread', this.state.sortingStatus))
+        this.setState({ filterMode: 'Unread' }, this.loadEmails(this.state.filterBy, 'Unread'))
     }
 
     filterAll = () => {
-        this.setState({ filterMode: 'All' }, this.loadEmails(this.state.filterBy, 'All', this.state.sortingStatus))
+        this.setState({ filterMode: 'All' }, this.loadEmails(this.state.filterBy, 'All'))
     }
 
-    filterStarredMails = () => {
-        this.setState({ filterMode: 'Starred' }, this.loadEmails(this.state.filterBy, 'Starred', this.state.sortingStatus))
+    filterStarredMails=()=>{
+        this.setState({ filterMode: 'Starred' }, this.loadEmails(this.state.filterBy, 'Starred'))
     }
 
     startComposing = () => {
@@ -81,9 +73,10 @@ export default class EmailsPage extends React.Component {
         this.setState({ isComposing: false }, this.onLoadEmails());
     }
 
-
+    
 
     render() {
+        console.log(this.state.emails)
         return (
             <div className="emails-page-container">
                 <SideNav filterStarredMails={this.filterStarredMails} filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
@@ -91,7 +84,7 @@ export default class EmailsPage extends React.Component {
                     {this.state.isComposing && <EmailAdd stopComposing={this.stopComposing}></EmailAdd>}
                     {(this.state.selectedEmail) ? <EmailDetails removeSelectedEmail={this.removeSelectedEmail} email={this.state.selectedEmail}></EmailDetails>
                         :
-                        <EmailList onSortBySubject={this.onSortBySubject} onSortBySentAt={this.onSortBySentAt} onLoadEmails={this.onLoadEmails} onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}
+                        <EmailList onLoadEmails={this.onLoadEmails} onSelectEmail={this.onSelectEmail} setFilterBy={this.setFilterBy} onDeleteMail={this.onDeleteMail} emails={this.state.emails}  ></EmailList>}
                 </section></div>
         )
     }

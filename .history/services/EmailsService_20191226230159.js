@@ -23,9 +23,9 @@ function getEmailById(emailId) {
     return Promise.resolve({ ...email })
 }
 
-function getEmails(filterBy, filterMode, sortingStatus) {
-    return filterEmails(filterBy, filterMode)
-        .then(emails => sorting(emails, sortingStatus));
+function getEmails(filterBy, filterMode) {
+    return filterEmails
+
 }
 
 function filterEmails(filterBy, filterMode) {
@@ -50,23 +50,19 @@ function filterEmails(filterBy, filterMode) {
         }))
     }
 }
-
-function sorting(emails, sortingStatus) {
-    return emails.sort(function (email1, email2) {
-        const firstEmail = (typeof email1[sortingStatus] === 'string') ? email1[sortingStatus].toUpperCase() : email1[sortingStatus];
-        const secondEmail = (typeof email2[sortingStatus] === 'string') ? email2[sortingStatus].toUpperCase() : email2[sortingStatus];
-        return firstEmail > secondEmail ? 1 : firstEmail < secondEmail ? -1 : 0;
-    })
-}
-
 function createEmails() {
     return emailsData.reduce((acc, email) => {
+        console.log([...acc, email]);
+
         return [...acc, email]
     }, [])
 }
 
 
 function addEmail(email) {
+    console.log('servie');
+
+    console.log(email);
 
     var newEmail = new Email(email.subject, email.body)
     gEmails = [...gEmails, newEmail]
@@ -108,5 +104,9 @@ function toggleStarred(emailId) {
     storageService.store('gEmails', gEmails);
 }
 
-
+function sorting(emails) {
+    return emails.sort(function (email1, email2) {
+        return email1[gSortStatus] - email2[gSortStatus] > 0 ? 1 : email1[gSortStatus] - email2[gSortStatus] < 0 ? -1 : 0;
+    })
+}
 

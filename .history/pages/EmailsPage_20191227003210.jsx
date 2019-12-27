@@ -84,6 +84,7 @@ export default class EmailsPage extends React.Component {
 
 
     render() {
+        console.log(this.state.emails)
         return (
             <div className="emails-page-container">
                 <SideNav filterStarredMails={this.filterStarredMails} filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>
