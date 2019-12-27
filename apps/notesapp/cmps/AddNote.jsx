@@ -30,7 +30,13 @@ export default class AddNote extends React.Component {
 
     onInputChange = (ev) => {
         let fieldName = ev.target.name
-        this.setState({ [fieldName]: ev.target.value })
+        let value = ev.target.value;
+        if (this.state.type === 'noteVideo') {
+            let videoUrl = value.replace('watch?v=', 'embed/');
+            this.setState({ [fieldName]: videoUrl })
+        } else {
+            this.setState({ [fieldName]: value })
+        }    
     }
 
     render() {
