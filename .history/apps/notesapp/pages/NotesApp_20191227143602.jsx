@@ -11,7 +11,7 @@ export default class NotesApp extends React.Component {
     }
 
     componentDidMount() {
-        this.onLoadNotes();
+        this.onLoadNotes;
     }
 
     setFilterBy = (filterBy) => {

@@ -6,9 +6,15 @@ import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
 export default class NotePreview extends React.Component {
 
     state = {
+        note: null
     }
 
     componentDidMount() {
+        this.setState({
+            note: this.props.note
+        }, () => {
+            console.log(this.state.note);
+        });
     }
 
     render() {
