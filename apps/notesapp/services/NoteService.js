@@ -20,10 +20,7 @@ function getNoteById(noteId) {
     return Promise.resolve({ ...Note })
 }
 
-function getNotes(filterBy) {
-    if (filterBy) return Promise.resolve(gNotes.filter(note => {
-        return note.info.includes(filterBy) || note.body.includes(filterBy)
-    }))
+function getNotes() {
     return Promise.resolve([...gNotes])
 }
 
@@ -35,7 +32,39 @@ function createNotes() {
 
 
 function addNote(note) {
-    var newNote = new Note(note.type, note.info)
+    
+    let info;
+    switch (note.type) {
+        case "noteText":
+            info = {
+                txt: note.textInput
+            }
+            break;
+        case "noteVideo":
+            info = {
+                label: note.textInput,
+                url: note.urlInput
+            }
+            break;
+        case "noteImage":
+            info = {
+                title: note.textInput,
+                url: note.urlInput
+            }
+            break;
+        case "noteTodo":
+            info = {
+                title: note.textInput
+            }
+            break;
+        default:
+            info = {
+                txt: note.textInput
+            }
+            break;
+    }
+    
+    let newNote = new Note(note.type, info)
     gNotes = [...gNotes, newNote]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)

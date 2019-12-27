@@ -1,7 +1,4 @@
-import NoteService from "../services/NoteService.js";
 import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
-
-
 
 export default class NotePreview extends React.Component {
 
