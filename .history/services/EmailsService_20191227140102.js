@@ -15,6 +15,9 @@ export default {
 }
 
 let gEmails = storageService.load('gEmails') || createEmails();
+let gSubjectAsc = true;
+let gDateAsc = true;
+
 
 
 

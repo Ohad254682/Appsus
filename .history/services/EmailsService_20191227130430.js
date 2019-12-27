@@ -55,7 +55,7 @@ function sorting(emails, sortingStatus) {
     return emails.sort(function (email1, email2) {
         const firstEmail = (typeof email1[sortingStatus] === 'string') ? email1[sortingStatus].toUpperCase() : email1[sortingStatus];
         const secondEmail = (typeof email2[sortingStatus] === 'string') ? email2[sortingStatus].toUpperCase() : email2[sortingStatus];
-        return firstEmail > secondEmail ? 1 : firstEmail < secondEmail ? -1 : 0;
+        return firstEmail - secondEmail > 0 ? 1 : firstEmail - secondEmail < 0 ? -1 : 0;
     })
 }
 

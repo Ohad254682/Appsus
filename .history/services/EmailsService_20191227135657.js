@@ -18,6 +18,7 @@ let gEmails = storageService.load('gEmails') || createEmails();
 
 
 
+
 function getEmailById(emailId) {
     var email = gEmails.find(email => email.id === emailId)
     return Promise.resolve({ ...email })
