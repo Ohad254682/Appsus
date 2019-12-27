@@ -1,7 +1,8 @@
 import EmailPreview from "./EmailPreview.jsx";
 import EmailSearch from "./EmailSearch.jsx"
 
-export default function EmailList(props) {
+export default class EmailList extends React.Component {
+
 
     return <ul>
         <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>

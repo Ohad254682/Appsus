@@ -3,9 +3,10 @@ import EmailSearch from "./EmailSearch.jsx"
 
 export default function EmailList(props) {
 
+
     return <ul>
         <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>
-        Sort By: <button onClick={props.onSortBySentAt}>Sent At</button> <button onClick={props.onSortBySubject}>Subject</button>
+        Sort By:<button onClick={}>Sent At</button>
         {props.emails.map((email, i) => {
             return <EmailPreview onLoadEmails={props.onLoadEmails} onSelectEmail={props.onSelectEmail} onDeleteMail={props.onDeleteMail} key={i} email={email} emails={props.emails}></EmailPreview>
         })}
