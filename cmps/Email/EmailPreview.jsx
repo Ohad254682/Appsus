@@ -1,10 +1,12 @@
-
-
+import LongTxt from "../LongTxt.jsx";
 import EmailsService from "../../services/EmailsService.js";
 import EventBusServices from '../../services/EventBusServices.js'
 
 export default class EmailPreview extends React.Component {
-
+    
+    state = {
+        isLongTxtShown: false
+    }
 
     ontoggleStarred = (ev) => {
         EmailsService.toggleStarred(this.props.email.id);
@@ -36,16 +38,27 @@ export default class EmailPreview extends React.Component {
 
     render() {
         return (
-            <li className="email-preview" onClick={this.onSelectEmail}>
-                <h2 className={this.props.email.isRead ? "gray" : "black"}>{this.props.email.subject}</h2>
-                <p>{this.props.email.body}</p>
+            <tr className="email-preview" onClick={this.onSelectEmail}>
+                <td>
+                    <button className="btn star-btn" onClick={this.ontoggleStarred}>{this.props.email.isStarred ? '⭐' : '✰'}</button>
+                </td>
+                <td>
+                    <p className={this.props.email.isRead ? "gray email-subject" : "black email-subject"}>{this.props.email.subject}</p>
+                </td>
+                <td className="email-preview-body">
+                    <LongTxt text={this.props.email.body} shortLength={100} isLongTxtShown={this.state.isLongTxtShown} />
+                </td>
+                {/* <p>{this.props.email.body}</p> */}
+                <td>
                 <div className="preview-btns-container" >
-                    <button onClick={this.onDeleteMail}>🗑️</button>
-                    <button onClick={this.onMarkToUnread}>✉</button>
-                    <button onClick={this.ontoggleStarred}>{this.props.email.isStarred ? '⭐' : '★'}</button>
+                    <div className="icons-preview-container">
+                        <button onClick={this.onDeleteMail}>🗑️</button>
+                        <button onClick={this.onMarkToUnread}>✉</button>
+                    </div>
                     <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 </div>
-            </li>
+                </td>
+            </tr>
         )
     }
 }

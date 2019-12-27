@@ -20,7 +20,7 @@ export default class EmailStatus extends React.Component {
     }
 
     render() {
-        return <p>({this.state.unreadEmails})</p>
+        return <span>({this.state.unreadEmails})</span>
     }
 }
 
