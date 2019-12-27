@@ -5,10 +5,13 @@ import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
 
 export default class NotePreview extends React.Component {
 
-    state = {
-    }
 
     componentDidMount() {
+        this.setState({
+            note: this.props.note
+        }, () => {
+            console.log(this.state.note);
+        });
     }
 
     render() {
@@ -16,10 +19,11 @@ export default class NotePreview extends React.Component {
 
         const type = this.props.note.type;
         const note = this.props.note;
-        
-        return (          
+
+        return (
             <article className="cards-container">
                 <DynamicCmps type={type} note={note}></DynamicCmps>
             </article>
-        )}
+        )
+    }
 }
