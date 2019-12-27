@@ -146,7 +146,7 @@ input[type="text"].searchTerm {
 
 .side-nav-btn {
     margin-top: 7px;
-    background-color: white;
+    background-color: transparent;
     border: 0.5px solid #e3e3e3;
     border-radius: 3px;
     transition: 0.8s;
@@ -176,11 +176,15 @@ button.btn.star-btn {
     width: 33px;
     border-radius: 5px;
     border: none;
-    background: white;
+    background: transparent;
 }
 
 .email-preview p {
     width: 200px;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 span.read-more-button {
@@ -209,16 +213,13 @@ p.email-subject {
 }
 
 .email-preview .black {
-    color: black
-}
-
-.read-preview {
-    background: rgba(242, 245, 245, 0.8);
+    color: black;
 }
 
 .unread-preview {
     color: #202124;
     background: rgba(255, 255, 255, 0.902);
+    background: rgba(242, 245, 245, 0.8);
 }
 
 .form-container {
@@ -279,7 +280,7 @@ input[type="text"] {
     width: 33px;
     border-radius: 5px;
     border: none;
-    background: white;
+    background: transparent;
 }
 
 /*** Notes ****/
