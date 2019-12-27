@@ -322,11 +322,4 @@ article.cards-container img {
 .note-btn{
     background-color: transparent;
     border:1px;
-    width:50px;
-}
-
-.textarea-note{
-    background-color: cornsilk;
-    border:0px;
-    resize: none;
 }

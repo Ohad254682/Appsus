@@ -1,4 +1,7 @@
+import NoteService from "../services/NoteService.js";
 import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
+
+
 
 export default class NotePreview extends React.Component {
 
@@ -24,6 +27,17 @@ export default class NotePreview extends React.Component {
     onDeleteNote = (ev) => {
         this.props.onDeleteNote(this.props.note.id);
         ev.stopPropagation();
+    }
+
+    onEditMode = (ev) => {
+        if (this.state.isEditMode) {
+            ev.target.removeAttribute('disabled');
+            ev.stopPropagation();
+        }
+        else {
+            ev.target.setAttribute('disabled');
+            ev.stopPropagation();
+        }
     }
 
     onSetEditMode = () => {

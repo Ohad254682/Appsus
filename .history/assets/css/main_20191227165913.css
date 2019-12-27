@@ -318,15 +318,3 @@ article.cards-container img {
     font-size: 1.5rem;
     font-weight:800;
 }
-
-.note-btn{
-    background-color: transparent;
-    border:1px;
-    width:50px;
-}
-
-.textarea-note{
-    background-color: cornsilk;
-    border:0px;
-    resize: none;
-}

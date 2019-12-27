@@ -325,8 +325,6 @@ article.cards-container img {
     width:50px;
 }
 
-.textarea-note{
+textarea{
     background-color: cornsilk;
-    border:0px;
-    resize: none;
 }

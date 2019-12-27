@@ -1,4 +1,7 @@
+import NoteService from "../services/NoteService.js";
 import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
+
+
 
 export default class NotePreview extends React.Component {
 
@@ -26,6 +29,17 @@ export default class NotePreview extends React.Component {
         ev.stopPropagation();
     }
 
+    onEditMode = (ev) => {
+        if (this.state.isEditMode) {
+            ev.target.removeAttribute('disabled');
+            ev.stopPropagation();
+        }
+        else {
+            ev.target.setAttribute('disabled');
+            ev.stopPropagation();
+        }
+    }
+
     onSetEditMode = () => {
         this.setState({ isEditMode: !this.state.isEditMode });
     }
@@ -39,7 +53,7 @@ export default class NotePreview extends React.Component {
 
         return (
             <article className="cards-container">
-                <DynamicCmps onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode}></DynamicCmps>
+                <DynamicCmps onEditMode={this.onEditMode} type={type} note={note}></DynamicCmps>
                 <div className="tools-bar">
                     <button onClick={this.onSetEditMode}>Edit</button>
                     <p className="note-icon">{this.onIconOfNote()}</p>
