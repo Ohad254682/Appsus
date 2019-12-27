@@ -1,4 +1,4 @@
-import NoteService from "../services/NoteService.js";
+import noteService from "../services/noteService.js";
 import DynamicCmps from "../cmps/dynamic/DynamicCmps.jsx";
 
 

@@ -1,37 +1,39 @@
 import SearchNote from "../cmps/SearchNote.jsx";
 import AddNote from "../cmps/AddNote.jsx";
 import NotesList from "../cmps/NotesList.jsx";
-import NoteService from "../services/NoteService.js";
+import noteService from "../services/noteService.js";
 
 export default class NotesApp extends React.Component {
 
     state = {
-        notes: [],
-        filterBy: ''
+        currNote: null,
+        notes: []
     }
 
     componentDidMount() {
-        this.onLoadNotes();
+        this.loadNotes();
     }
 
-    setFilterBy = (filterBy) => {
-        this.setState({ filterBy }, this.loadNotes(filterBy))
+    // componentDidUpdate(prevState) {
+    //     if (prevState.currNote !== this.state.currNote) {
+    //         this.loadNotes();
+    //     }
+    // }
+
+    onAddNote = (addedNote) => {
+        noteService.addNote(addedNote).then(addedNote => {
+            this.setState({ currNote: addedNote })
+        });
     }
 
     onDeleteNote = (noteId) => {
-        NoteService.deleteNote(noteId);
+        noteService.deleteNote(noteId);
         this.loadNotes();
     }
 
     loadNotes = (filterBy) => {
-        NoteService.getNotes(filterBy)
-            .then(notes => {
-                this.setState({ notes })
-            })
-    }
-
-    onLoadNotes = () => {
-        this.loadNotes(this.state.filterBy)
+        noteService.getNotes()
+            .then(notes => { this.setState({ notes }) })
     }
 
     render() {
@@ -39,9 +41,9 @@ export default class NotesApp extends React.Component {
             <div className="notes-page-container">
                 <header>
                     <SearchNote />
-                    <AddNote />
+                    <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} />
+                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote}/>
             </div>
         </React.Fragment>
     }
