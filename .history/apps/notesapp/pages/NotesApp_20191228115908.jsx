@@ -50,7 +50,7 @@ export default class NotesApp extends React.Component {
                     <SearchNote />
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList onLoadNotes={this.onLoadNotes} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} />
+                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} />
             </div>
         </React.Fragment>
     }

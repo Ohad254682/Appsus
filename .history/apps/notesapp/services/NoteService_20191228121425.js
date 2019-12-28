@@ -82,11 +82,11 @@ function editNote(id, text) {
 
     let info = editNote.info;
     switch (editNote.type) {
-        case 'noteText': let txt = text; info = { ...info, txt }; break;
-        case 'noteImg': let title = text; info = { ...info, title }; break;
-        case 'noteVideo': let label = text; info = { ...info, label }; break;
+        case 'noteText': let txt = text; editInfo = { ...editInfo, txt }; break;
+        case 'noteImg': let title = text; editInfo = { ...editInfo, title }; break;
+        case 'noteVideo': let label = text; editInfo = { ...editInfo, label }; break;
     }
-    editNote = { ...editNote, info };
+    editNote = { ...editNote, editInfo };
 
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
 

@@ -86,7 +86,7 @@ function editNote(id, text) {
         case 'noteImg': let title = text; info = { ...info, title }; break;
         case 'noteVideo': let label = text; info = { ...info, label }; break;
     }
-    editNote = { ...editNote, info };
+    info = { ...editNote, info };
 
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
 

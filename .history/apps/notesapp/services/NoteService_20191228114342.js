@@ -77,17 +77,21 @@ function deleteNote(noteId) {
     return Promise.resolve(true)
 }
 
-function editNote(id, text) {
+function editNote(id, txt) {
     let editNote = gNotes.find(note => note.id === id)
 
-    let info = editNote.info;
+    let editInfo = editNote.info;
     switch (editNote.type) {
-        case 'noteText': let txt = text; info = { ...info, txt }; break;
-        case 'noteImg': let title = text; info = { ...info, title }; break;
-        case 'noteVideo': let label = text; info = { ...info, label }; break;
-    }
-    editNote = { ...editNote, info };
+        case 'noteText': let txt = txt; editInfo={ ...editInfo, txt }; break;
+        case 'noteImg': let title = txt; editInfo={ ...editInfo, title }; break;
+        case 'noteTodos':
+        case 'noteVideo':
 
+    }
+    editinfo = editNote.info
+    editNote = { ...editNote, txt };
+
+    // gpets = gPets.map(pet=>  pet);
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
 
     storageService.store('gNotes', gNotes);

@@ -11,8 +11,9 @@ export default class Text extends React.Component {
         var value = ev.target.value;
         var field = ev.target.name;
         this.setState({ [field]: value });
-        noteService.editNote(this.props.note.id, value)
-        .then(this.props.onLoadNotes());
+        noteService.editNote(this.props.note.id, value);
+        
+
     }
 
     render() {

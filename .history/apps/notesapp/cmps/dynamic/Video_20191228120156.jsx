@@ -1,4 +1,3 @@
-import noteService from "../../services/NoteService.js";
 export default class Video extends React.Component {
 
     state = {

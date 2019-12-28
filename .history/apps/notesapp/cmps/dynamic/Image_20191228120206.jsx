@@ -1,8 +1,7 @@
-import noteService from "../../services/NoteService.js";
-export default class Video extends React.Component {
-
+export default class Image extends React.Component  {
+    
     state = {
-        textarea: this.props.note.info.label
+        textarea: this.props.note.info.title
     }
 
     onChangeInput = (ev) => {
@@ -13,10 +12,13 @@ export default class Video extends React.Component {
         .then(this.props.onLoadNotes());
     }
 
+    
     render() {
         return <div>
             <input className="textarea-note" type="text" name="textarea" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></input>
-            <iframe width="300" height="200" src={this.props.note.info.url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <img src={this.props.note.info.url} />
         </div>
     }
 }
+
+

@@ -1,4 +1,14 @@
-import noteService from "../../services/NoteService.js";
+export default class Image React.Component  {
+
+
+    return <div>
+        <textarea className="textarea-note" value={props.note.info.title} disabled={props.isEditMode ? false : true}></textarea>
+        <img src={props.note.info.url} />
+    </div>
+}
+
+
+
 export default class Video extends React.Component {
 
     state = {
@@ -8,9 +18,7 @@ export default class Video extends React.Component {
     onChangeInput = (ev) => {
         var value = ev.target.value;
         var field = ev.target.name;
-        this.setState({ [field]: value });
-        noteService.editNote(this.props.note.id, value)
-        .then(this.props.onLoadNotes());
+        this.setState({ [field]: value })
     }
 
     render() {
@@ -20,3 +28,5 @@ export default class Video extends React.Component {
         </div>
     }
 }
+
+
