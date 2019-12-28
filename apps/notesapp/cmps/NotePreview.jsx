@@ -8,7 +8,7 @@ export default class NotePreview extends React.Component {
         colorMode: false,
         isPinned: false,
         currNote: this.props.note,
-        color: (this.props.note.style.backgroundColor) || '#fff8dc'
+        color: (this.props.note.info.backgroundColor) || '#fff8dc'
         // color: '#fff8dc'
     }
 

@@ -3,46 +3,38 @@ export const notesData = [
         type: "noteText",
         isPinned: true,
         info: {
+            backgroundColor: "#fff8dc",
             txt: "Fullstack Me Baby!"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111aamkabb'
     },
     {
         type: "noteImg",
         info: {
+            backgroundColor: "#fff8dc",
             url: "../../../assets/images/Sea_Otter.jpg",
             title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111aacaacc'
     },
     {
         type: "noteTodos",
         info: {
+            backgroundColor: "#fff8dc",
             label: "How was it:",
             todos: [
                 { id:'1112227', txt: "Do that", isDone: false },
                 { id: '1112226', txt: "Do this", isDone: true }
             ]
         },
-        style: {
-            backgroundColor: "#fff8dc"
-        },
         id: '111aaarcdd'
     },
     {
         type: "noteVideo",
         info: {
+            backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",
             url: "https://www.youtube.com/embed/F3EsDDp4VXg"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111zxaa22dd'
     },
@@ -50,43 +42,35 @@ export const notesData = [
         type: "noteText",
         isPinned: true,
         info: {
+            backgroundColor: "#fff8dc",
             txt: "Fullstack Me Baby!"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111xcxcxhaaabb'
     },
     {
         type: "noteImg",
         info: {
+            backgroundColor: "#fff8dc",
             url: "../../../assets/images/Sea_Otter.jpg",
             title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111iuiuiaaacc'
     },
     {
         type: "noteVideo",
         info: {
+            backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",
             url: "https://www.youtube.com/embed/F3EsDDp4VXg"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111anbva22dd'
     },
     {
         type: "noteVideo",
         info: {
+            backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",
             url: "https://www.youtube.com/embed/F3EsDDp4VXg"
-        },
-        style: {
-            backgroundColor: "#fff8dc"
         },
         id: '111aaaaaaaa22dd'
     }

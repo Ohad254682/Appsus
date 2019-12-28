@@ -41,40 +41,45 @@ function createNotes() {
 
 
 function addNote(note) {
-
+    
     let info;
     switch (note.type) {
         case "noteText":
             info = {
-                txt: note.textInput
+                txt: note.textInput,
+                backgroundColor: "#fff8dc"
             }
             break;
         case "noteVideo":
             info = {
                 label: note.textInput,
-                url: note.urlInput
+                url: note.urlInput,
+                backgroundColor: "#fff8dc"
             }
             break;
         case "noteImage":
             info = {
                 title: note.textInput,
-                url: note.urlInput
+                url: note.urlInput,
+                backgroundColor: "#fff8dc"
             }
             break;
         case "noteTodo":
             info = {
-                label: note.textInput
+                label: note.textInput,
+                backgroundColor: "#fff8dc"
             }
             break;
         default:
             info = {
-                txt: note.textInput
+                txt: note.textInput,
+                backgroundColor: "#fff8dc"
             }
             break;
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [...gNotes, newNote]
+    gNotes = [newNote, ...gNotes]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }
@@ -88,7 +93,7 @@ function deleteNote(noteId) {
 function editNoteColor(noteId, color) {
     let editNote = gNotes.find(note => note.id === noteId)
     editNote = { ...editNote };
-    editNote.style.backgroundColor = color;
+    editNote.info.backgroundColor = color;
     gNotes = [...gNotes, editNote]
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
     storageService.store('gNotes', gNotes)

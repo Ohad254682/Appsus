@@ -47,6 +47,8 @@ export default class NotesApp extends React.Component {
     }
 
     onAddNote = (addedNote) => {
+        console.log(addedNote);
+        
         noteService.addNote(addedNote)
             .then(addedNote => {
                 this.setState({ currNote: addedNote })
