@@ -63,7 +63,7 @@ ul {
 }
 
 button {
-    width: 50px;
+    width: 100px;
     height: 30px;
     cursor: pointer;
 }
@@ -364,7 +364,6 @@ article.cards-container img {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-
 .textarea-note:disabled {
     border: transparent;
     box-shadow: none;
@@ -490,6 +489,5 @@ input[type="radio"], input[type="checkbox"] {
 .todolist{
     border-bottom:1px dashed gray;
     height:50px; 
-    display:flex;
 
 }

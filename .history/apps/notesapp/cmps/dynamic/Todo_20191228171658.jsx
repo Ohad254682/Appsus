@@ -9,12 +9,12 @@ export default class Todo extends React.Component {
 
     onAddTodo = () => {
         noteService.addTodo(this.props.note.id)
-            .then(this.props.onLoadNotes);
+            .then(this.props.onLoadNotes;
     }
 
     onDeleteTodo = (todoId) => {
         noteService.deleteTodo(this.props.note.id, todoId)
-            .then(this.props.onLoadNotes);
+            .then(this.props.onLoadNotes());
     }
 
     onChangeInput = (ev) => {

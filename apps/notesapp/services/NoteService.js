@@ -1,8 +1,8 @@
 'use strict';
 import storageService from '../../../services/storageService.js';
+import { getRandomId } from "../../../services/utils.js";
 import Note from './Note.js'
 import { notesData } from './Notes.js'
-import { getRandomId } from "../../../services/utils.js";
 
 export default {
     getNoteById,
@@ -10,6 +10,9 @@ export default {
     createNotes,
     addNote,
     deleteNote,
+    editNoteColor,
+    isPinned,
+    copyNote,
     editNote,
     addTodo,
     deleteTodo
@@ -29,9 +32,11 @@ function getNotes(filterBy) {
 }
 
 function createNotes() {
-    return notesData.reduce((acc, Note) => {
+    let notes = notesData.reduce((acc, Note) => {
         return [...acc, Note]
     }, [])
+    storageService.store('gNotes', notes)
+    return notes
 }
 
 
@@ -80,6 +85,35 @@ function deleteNote(noteId) {
     return Promise.resolve(true)
 }
 
+function editNoteColor(noteId, color) {
+    let editNote = gNotes.find(note => note.id === noteId)
+    editNote = { ...editNote };
+    editNote.style.backgroundColor = color;
+    gNotes = [...gNotes, editNote]
+    gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
+    storageService.store('gNotes', gNotes)
+    return Promise.resolve(editNote)
+}
+
+function copyNote(note) {
+    let copiedNote = gNotes.find(note => note.id === noteId)
+    copiedNote = { ...copiedNote };
+    copiedNote.id = getRandomId();
+    gNotes = [...gNotes, copiedNote]
+    gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
+    storageService.store('gNotes', gNotes)
+    return Promise.resolve(copiedNote)
+}
+
+function isPinned(noteId) {
+    let note = getNoteById(noteId)
+    if (!note.isPinned) {note.isPinned = true}
+    else note.isPinned = false
+    gNotes = [...gNotes];
+    gNotes.unshift(note);
+    storageService.store('gNotes', gNotes);
+    return Promise.resolve(true)
+}
 function editNote(id, text) {
     let editNote = gNotes.find(note => note.id === id)
 
