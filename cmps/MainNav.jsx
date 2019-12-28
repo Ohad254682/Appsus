@@ -12,7 +12,7 @@ export default class MainNav extends React.Component {
 
     render() {
         return <nav className="main-nav">
-            <img className="logo" src="../assets/images/logo.png" />
+            <img className="logo" src={"../assets/images/logo.png"} />
             <section className="main-mobile-nav-container">
             
             {/* <div className="nav-icon" onClick={this.onToggleMenu}>

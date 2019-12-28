@@ -149,7 +149,7 @@ img.logo {
 }
 
 input[type="text"].searchTerm {
-    background-image: url(../images/icons/search.png);
+    background-image: url({../images/icons/search.png});
     background-repeat: no-repeat;
     background-position: 3px 7px;
     background-size: 27px;
