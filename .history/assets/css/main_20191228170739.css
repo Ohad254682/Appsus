@@ -329,8 +329,7 @@ article.cards-container img {
     background-color: cornsilk;
     border:0px;
     resize: none;
-    height:50px;
-    font-size:0.8rem;
+    height:20px;
 }
 
 .todo-isdone{
@@ -339,6 +338,6 @@ article.cards-container img {
 
 .todolist{
     border-bottom:1px dashed gray;
-    height:50px; 
+    height:30px; 
 
 }

@@ -329,8 +329,7 @@ article.cards-container img {
     background-color: cornsilk;
     border:0px;
     resize: none;
-    height:50px;
-    font-size:0.8rem;
+    height:30px;
 }
 
 .todo-isdone{
