@@ -1,7 +1,7 @@
 export default function Todo(props) {
 
     let todos = props.note.info.todos;
-    todos.forEach((todo)=>{console.log(todo.id)})
+    // todos.forEach((todo)=>{console.log(todo.id)})
     return <div>
         <p>{props.note.type}</p>
         <p>{props.note.info.label}</p>

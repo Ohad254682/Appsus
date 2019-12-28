@@ -20,6 +20,31 @@ export default class NotesApp extends React.Component {
     //     }
     // }
 
+    onSelectNote = (note) => {
+        this.setState({ currNote: note })
+        console.log('onSelectNote', this.state);  
+    }
+
+    removeSelectedNote = () => {
+        this.setState({ currNote: null })
+    }
+
+    isPinned = (noteId) => {
+        noteService.isPinned(noteId);
+        this.loadNotes();
+    }
+
+    onChangeColor = (newColor) => {
+        // this.state.currNote.id &&
+        noteService.editNoteColor(this.state.currNote.id, newColor).then(note => {this.setState({ currNote: note })}).then(this.loadNotes());
+    }
+
+    onCopyNote = () => {
+        console.log(this.state.currNote);
+        
+        noteService.copyNote(this.state.currNote.id).then(note => { this.setState({ currNote: note }) }).then(this.loadNotes());
+    }
+
     onAddNote = (addedNote) => {
         noteService.addNote(addedNote)
             .then(addedNote => {
@@ -40,12 +65,12 @@ export default class NotesApp extends React.Component {
 
     render() {
         return <React.Fragment>
-            <div className="notes-page-container">
+            <div className="container notes-page-container">
                 <header>
                     <SearchNote />
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} />
+                <NotesList setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} onChangeColor={this.onChangeColor} onSelectNote={this.onSelectNote} onCopyNote={this.onCopyNote}/>
             </div>
         </React.Fragment>
     }

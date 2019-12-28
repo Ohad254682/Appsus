@@ -11,7 +11,8 @@ export default class AddNote extends React.Component {
             noteText: 'Enter Your note...',
             noteVideo: 'Enter Video Title',
             noteImg: 'Enter Image Title'
-        }
+        },
+        border: 'none'
     }
 
     componentWillUnmount() {
@@ -21,10 +22,8 @@ export default class AddNote extends React.Component {
     onAddNote = (ev) => {
         ev.preventDefault();
         let { type, textInput, urlInput } = this.state;
-        // noteService.addNote({ type, textInput, urlInput }).then(() => this.setState({ type: '', textInput: '', urlInput: '' }))   
         this.props.onAddNote({ ...this.state });
         console.log({ type, textInput, urlInput });
-        // return {type, textInput, urlInput}      
     }
 
 
@@ -36,8 +35,20 @@ export default class AddNote extends React.Component {
             this.setState({ [fieldName]: videoUrl })
         } else {
             this.setState({ [fieldName]: value })
-        }    
+        }
     }
+
+    // onFocus() {
+    //     this.setState({
+    //         border: '1px solid blue'
+    //     })
+    // }
+
+    // onBlur() {
+    //     this.setState({
+    //         border: 'transprent'
+    //     })
+    // }
 
     render() {
 
