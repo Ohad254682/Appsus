@@ -17,7 +17,7 @@ export default class Text extends React.Component {
 
     render() {
         return <div>
-            <input type="text" name="textarea" className="textarea-note" type="text" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></input>
+            <textarea type="text" name="textarea" className="textarea-note" rows="14" cols="50" type="text" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></textarea>
         </div>
     }
 }

@@ -15,12 +15,6 @@ export default class NotesApp extends React.Component {
         this.onLoadNotes();
     }
 
-    // componentDidUpdate(prevState) {
-    //     if (prevState.currNote !== this.state.currNote) {
-    //         this.loadNotes();
-    //     }
-    // }
-
     onSelectNote = (note) => {
         this.setState({ currNote: note })
         console.log('onSelectNote', this.state);
@@ -32,19 +26,16 @@ export default class NotesApp extends React.Component {
 
     isPinned = (noteId) => {
         noteService.isPinned(noteId);
-        this.loadNotes();
+        this.onLoadNotes();
     }
 
+    onCopyNote = (note) => {
+        console.log(note);
 
-    onCopyNote = () => {
-        console.log(this.state.currNote);
-
-        noteService.copyNote(this.state.currNote.id).then(note => { this.setState({ currNote: note }) }).then(this.loadNotes());
+        noteService.copyNote(this.state.currNote.id).then(this.onLoadNotes());
     }
 
     onAddNote = (addedNote) => {
-        console.log(addedNote);
-
         noteService.addNote(addedNote)
             .then(addedNote => {
                 this.setState({ currNote: addedNote })

@@ -7,7 +7,7 @@ export default class NotePreview extends React.Component {
         isEditMode: false,
         colorMode: false,
         isPinned: false,
-        currNote: this.props.note,
+        currNote: null,
     }
 
     componentDidMount() {
@@ -36,9 +36,9 @@ export default class NotePreview extends React.Component {
         this.setState(prevState => ({ isEditMode: !prevState.isEditMode }))
     }
 
-    onSelectNote = () => {
-        this.setState({ currNote: this.props.note })
-        this.props.onSelectNote(this.props.note);
+    onSelectNote = (note) => {
+        this.setState({ currNote: note })
+        this.props.onSelectNote(note);
     }
 
     onToggleColorMode = () => {
@@ -58,9 +58,13 @@ export default class NotePreview extends React.Component {
         this.props.onChangeColor(this.props.color);
     }
 
-    onCopyNote = () => {
+    onCopyNote = (note) => {
+        console.log(note);
+    
+        
         let { currNote } = this.state;
-        this.props.onCopyNote({ ...this.state });
+        // this.props.onCopyNote({ ...this.state });
+        this.props.onCopyNote(note);
         console.log({ currNote });
     }
 
@@ -78,7 +82,7 @@ export default class NotePreview extends React.Component {
                 <div className="tools-bar">
                     <p className="note-icon">{this.onIconOfNote()}</p>
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
-                    <button className="note-btn" onClick={this.onToggleColorMode}>🎨</button>
+                    <button className="note-btn" onClick={this.onToggleColorMode} note={note}>🎨</button>
                     <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
                     {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
                     <button className="note-btn" onClick={this.onSetPinned}>📌</button>

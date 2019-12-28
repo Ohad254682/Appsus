@@ -63,7 +63,7 @@ ul {
 }
 
 button {
-    width: 50px;
+    /* width: 50px; */
     height: 30px;
     cursor: pointer;
 }
@@ -128,6 +128,7 @@ img.logo {
     color: #3c4043;
     display: flex;
     font-weight: 500;
+    margin-bottom: 10px;
     height: 48px;
     min-width: 56px;
     /* padding: 0 24px 0 0; */
@@ -220,15 +221,20 @@ span.read-more-button {
 .email-details {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    padding: 15px;
     justify-content: flex-start;
     margin-top: 60px;
 }
 
 .email-details h2 {
-    border: gray 1px solid;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 10px;
     margin: 0px;
-    width: 180px;
+    margin-bottom: 6px;
+}
+
+.email-details p {
+    margin-bottom: 10px;
 }
 
 p.email-subject {
@@ -280,7 +286,7 @@ input[type="text"] {
     justify-content: center;
     outline: none;
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    font-size: .875rem;
+    font-size: 1.175rem;
     letter-spacing: .25px;
     border-radius: 4px;
     cursor: pointer;
@@ -290,6 +296,8 @@ input[type="text"] {
     outline: none;
     padding: 0 16px;
     background-color: #1a73e8;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     color: #fff;
     border: none;
 }
@@ -352,12 +360,14 @@ section.add-note-container form button[type="submit"] {
 .notes-page-container>ul {
     display: grid;
     grid-gap: 10px 15px;
-    grid-template-columns: repeat(2, auto);
+    /* grid-template-columns: repeat(2, auto); */
+    grid-template-columns: repeat(3, minmax(250px, 400px));
     grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    margin: auto;
 }
 
 article.cards-container {
-    max-width: 400px;
+    min-width: 300px;
     background-color: #fff8dc;
     border-radius: 10px;
     padding: 20px;
@@ -443,10 +453,6 @@ input[type="radio"], input[type="checkbox"] {
     display: none;
 }
 
-/* .ham-check:checked+.ham-menu {
-    transform: translate(0, 0);
-} */
-
 .color-picker {
     display: inline-flex;
     width: 30px;
@@ -458,10 +464,6 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #container::after {
-    /* width: 100%;
-    margin-top: 200px;
-    font-size: 100px;
-    color: white; */
     text-align: center;
     display: block;
 }
@@ -550,7 +552,14 @@ input[type="radio"], input[type="checkbox"] {
 
 /*** Mobile ***/
 
-@media (max-width: 770px) {
+@media (max-width: 1100px) {
+    .notes-page-container>ul {
+        grid-template-columns: repeat(2, minmax(200px, 350px));
+        grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
     html {
         font-size: 14px;
     }
@@ -558,5 +567,9 @@ input[type="radio"], input[type="checkbox"] {
         padding-left: 10px;
         padding-right: 10px;
     }
- 
+    .notes-page-container>ul {
+        /* grid-template-columns: repeat(2, auto); */
+        grid-template-columns: repeat(1, minmax(250px, 400px));
+        grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    }
 }
