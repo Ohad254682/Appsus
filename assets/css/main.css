@@ -352,7 +352,9 @@ select[name="type"] {
 }
 
 section.add-note-container form button[type="submit"] {
-    width: 80px;
+    width: 53px;
+    margin-left: 4px;
+    justify-content: center;
     height: auto;
     font-weight: 900;
 }
@@ -451,6 +453,10 @@ article.cards-container img {
 
 input[type="radio"], input[type="checkbox"] {
     display: none;
+}
+
+input[type="url"] {
+    text-indent: 6px;
 }
 
 .color-picker {
@@ -561,7 +567,6 @@ input[type="radio"], input[type="checkbox"] {
         grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
     }
 }
-
 
 @media (max-width: 770px) {
     html {
