@@ -3,7 +3,6 @@ import storageService from '../../../services/storageService.js';
 import { getRandomId } from "../../../services/utils.js";
 import Note from './Note.js'
 import { notesData } from './Notes.js'
-import { getRandomId } from "../../../services/utils.js";
 
 export default {
     getNoteById,
