@@ -8,18 +8,14 @@ export default class Todo extends React.Component {
             .then(this.props.onLoadNotes());
     }
 
-    onDeleteTodo = (todoId) => {
-        noteService.deleteTodo(this.props.note.id, todoId)
-            .then(this.props.onLoadNotes());
-    }
-
     render() {
         return <div>
             <p>{this.props.note.info.label}</p>
             <ul>
-                {this.props.note.info.todos.map(todo => <li className={todo.isDone ? 'todo-isdone todolist' : 'todolist'} key={todo.id}>{todo.txt} <button onClick={() => this.onDeleteTodo(todo.id)}>Delete</button></li>)}
+                {this.props.note.info.todos.map(todo => <li className={todo.isDone ? 'todo-isdone todolist' : 'todolist'} key={todo.id}>{todo.txt}</li>)}
             </ul>
             <button onClick={this.onAddTodo}>+</button>
+            <button onClick=></button>
 
         </div>
     }

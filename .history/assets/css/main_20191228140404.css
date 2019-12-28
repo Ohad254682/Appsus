@@ -334,9 +334,3 @@ article.cards-container img {
 .todo-isdone{
     text-decoration: line-through;
 }
-
-.todolist{
-    border-bottom:1px dashed gray;
-    height:30px; 
-
-}

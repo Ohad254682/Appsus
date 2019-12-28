@@ -23,8 +23,8 @@ export const notesData = [
         info: {
             label: "How was it:",
             todos: [
-                { id:'1112227', txt: "Do that", isDone: false },
-                { id: '1112226', txt: "Do this", isDone: true }
+                { id:'1112227', txt: "Do that", doneAt: null },
+                { id: '1112226', txt: "Do this", doneAt: 187111111 }
             ]
         },
         id: '111aaadd'

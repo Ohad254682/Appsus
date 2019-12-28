@@ -2,7 +2,6 @@
 import storageService from '../../../services/storageService.js';
 import Note from './Note.js'
 import { notesData } from './Notes.js'
-import { getRandomId } from "../../../services/utils.js";
 
 export default {
     getNoteById,
@@ -11,8 +10,6 @@ export default {
     addNote,
     deleteNote,
     editNote,
-    addTodo,
-    deleteTodo
 }
 
 let gNotes = storageService.load('gNotes') || createNotes();
@@ -58,7 +55,7 @@ function addNote(note) {
             break;
         case "noteTodo":
             info = {
-                label: note.textInput
+                title: note.textInput
             }
             break;
         default:
@@ -98,25 +95,6 @@ function editNote(id, text) {
     return Promise.resolve(editNote)
 }
 
-
-function addTodo(noteId) {
-    let currNote = gNotes.find(note => note.id === noteId)
-    var newTodo = { id: getRandomId(), txt: "", isDone: false }
-    currNote.info.todos = [...currNote.info.todos, newTodo];
-    gNotes = [...gNotes, currNote];
-    storageService.store('gNotes', gNotes);
-    return Promise.resolve(currNote);
-}
-
-function deleteTodo(noteId, todoId) {
-    let currNote = gNotes.find(note => note.id === noteId)
-    let todos = currNote.info.todos.filter(todo => todo.id !== todoId)
-    let info = { ...currNote.info, todos }
-    currNote = { ...currNote, info }
-    gNotes = gNotes.map(note => currNote.id === note.id ? currNote : note)
-    storageService.store('gNotes', gNotes);
-    return Promise.resolve(true)
-}
 
 
 function filterNotes(filterBy) {

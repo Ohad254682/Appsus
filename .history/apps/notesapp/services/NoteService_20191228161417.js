@@ -11,8 +11,7 @@ export default {
     addNote,
     deleteNote,
     editNote,
-    addTodo,
-    deleteTodo
+    addTodo
 }
 
 let gNotes = storageService.load('gNotes') || createNotes();
@@ -108,12 +107,10 @@ function addTodo(noteId) {
     return Promise.resolve(currNote);
 }
 
-function deleteTodo(noteId, todoId) {
-    let currNote = gNotes.find(note => note.id === noteId)
-    let todos = currNote.info.todos.filter(todo => todo.id !== todoId)
-    let info = { ...currNote.info, todos }
-    currNote = { ...currNote, info }
-    gNotes = gNotes.map(note => currNote.id === note.id ? currNote : note)
+function deleteTodo(noteId, todoID) {
+    currNote = gNotes.find(note => note.id === noteId)
+    currNote = currNote.filter()
+    gNotes = gNotes.filter((currNote) => currNote.id !== noteId)
     storageService.store('gNotes', gNotes);
     return Promise.resolve(true)
 }

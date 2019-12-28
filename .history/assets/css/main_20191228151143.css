@@ -336,7 +336,7 @@ article.cards-container img {
 }
 
 .todolist{
+    border-top:1px dashed gray;
     border-bottom:1px dashed gray;
-    height:30px; 
 
 }

@@ -8,8 +8,8 @@ export default class Todo extends React.Component {
             .then(this.props.onLoadNotes());
     }
 
-    onDeleteTodo = (todoId) => {
-        noteService.deleteTodo(this.props.note.id, todoId)
+    onDeleteTodo = () => {
+        noteService.deleteTodo(this.props.note.id)
             .then(this.props.onLoadNotes());
     }
 
@@ -17,7 +17,7 @@ export default class Todo extends React.Component {
         return <div>
             <p>{this.props.note.info.label}</p>
             <ul>
-                {this.props.note.info.todos.map(todo => <li className={todo.isDone ? 'todo-isdone todolist' : 'todolist'} key={todo.id}>{todo.txt} <button onClick={() => this.onDeleteTodo(todo.id)}>Delete</button></li>)}
+                {this.props.note.info.todos.map(todo => <li className={todo.isDone ? 'todo-isdone todolist' : 'todolist'} key={todo.id}>{todo.txt} <button onClick={()=>this.onDeleteTodo(todo.id)}>Delete</button></li>)}
             </ul>
             <button onClick={this.onAddTodo}>+</button>
 

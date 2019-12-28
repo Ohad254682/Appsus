@@ -110,9 +110,8 @@ function addTodo(noteId) {
 
 function deleteTodo(noteId, todoId) {
     let currNote = gNotes.find(note => note.id === noteId)
-    let todos = currNote.info.todos.filter(todo => todo.id !== todoId)
-    let info = { ...currNote.info, todos }
-    currNote = { ...currNote, info }
+    todos = currNote.info.todos.filter(todo => todo.id !== todoId)
+    info = {...currNote.info, todos}
     gNotes = gNotes.map(note => currNote.id === note.id ? currNote : note)
     storageService.store('gNotes', gNotes);
     return Promise.resolve(true)
