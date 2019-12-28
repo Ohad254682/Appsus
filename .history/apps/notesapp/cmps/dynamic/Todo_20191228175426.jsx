@@ -31,7 +31,7 @@ export default class Todo extends React.Component {
             <ul>
                 {this.props.note.info.todos.map(todo =>
                     <li key={todo.id}>
-                        <input type="text" name="textarea" className=" className={todo.isDone ? 'todo-isdone todolist' : 'todolist'}" type="text" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></input>
+                        <input type="text" name="textarea" className=" className={todo.isDone ? 'todo-isdone todolist textarea-note' : 'todolist textarea-note'}" type="text" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></input>
                         <button onClick={() => this.onDeleteTodo(todo.id)}>Delete</button></li>)}
             </ul>
             <button onClick={this.onAddTodo}>+</button>
