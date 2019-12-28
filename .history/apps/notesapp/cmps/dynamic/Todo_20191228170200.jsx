@@ -1,0 +1,34 @@
+import noteService from "../../services/NoteService.js";
+export default class Todo extends React.Component {
+
+    todos = this.props.note.info.todos;
+
+    onAddTodo = () => {
+        noteService.addTodo(this.props.note.id)
+            .then(this.props.onLoadNotes());
+    }
+
+    onDeleteTodo = (todoId) => {
+        noteService.deleteTodo(this.props.note.id, todoId)
+            .then(this.props.onLoadNotes());
+    }
+
+    onChangeInput = (ev) => {
+        var value = ev.target.value;
+        var field = ev.target.name;
+        this.setState({ [field]: value });
+        noteService.editNote(this.props.note.id, value)
+        .then(this.props.onLoadNotes());
+    }
+
+    render() {
+        return <div>
+            <p>{this.props.note.info.label}</p>
+            <ul>
+                {this.props.note.info.todos.map(todo => <li className={todo.isDone ? 'todo-isdone todolist' : 'todolist'} key={todo.id}>{todo.txt} <button onClick={() => this.onDeleteTodo(todo.id)}>Delete</button></li>)}
+            </ul>
+            <button onClick={this.onAddTodo}>+</button>
+
+        </div>
+    }
+}
