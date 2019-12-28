@@ -361,6 +361,7 @@ article.cards-container img {
     text-align: center;
     font-size: 1rem;
     resize: none;
+<<<<<<< HEAD
     background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -480,4 +481,16 @@ input[type="radio"], input[type="checkbox"] {
 
 #sun:checked~#container::after {
     content: '#f1c40f';
+=======
+}
+
+.todo-isdone{
+    text-decoration: line-through;
+}
+
+.todolist{
+    border-bottom:1px dashed gray;
+    height:30px; 
+
+>>>>>>> 03fd819d7ec4a314466438bed6b3862118720717
 }

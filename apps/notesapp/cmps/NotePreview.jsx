@@ -72,7 +72,8 @@ export default class NotePreview extends React.Component {
 
         return (
             <article className="cards-container" id="container" style={{ backgroundColor: colorbg }} onClick={this.onSelectNote}>
-                <DynamicCmps onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onSetPinned}></DynamicCmps>
+                <DynamicCmps onLoadNotes={this.props.onLoadNotes} onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onSetPinned}></DynamicCmps>
+
                 <div className="tools-bar">
                     <p className="note-icon">{this.onIconOfNote()}</p>
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
