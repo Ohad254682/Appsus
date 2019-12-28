@@ -3,6 +3,7 @@ import EmailDetails from "./pages/EmailDetails.jsx";
 import EmailAdd from "./pages/EmailAdd.jsx";
 
 import MainNav from "./cmps/MainNav.jsx";
+import Footer from "./cmps/Footer.jsx";
 import NotesApp from "./apps/notesapp/pages/NotesApp.jsx";
 
 const Router = ReactRouterDOM.HashRouter
@@ -26,6 +27,8 @@ class App extends React.Component {
 
                         <Route component={NotesApp} path="/notes" exact></Route>
                     </Switch>
+
+                    <Footer></Footer>
                 </Router>
             </main>
         )
