@@ -41,12 +41,12 @@ function filterEmails(filterBy, filterMode) {
     }
     else if (filterMode === 'Read') {
         return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.toUpperCase().includes(filterBy.toUpperCase()) || email.body.toUpperCase().includes(filterBy.toUpperCase())) && email.isRead)
+            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isRead)
         }))
     }
     else if (filterMode === 'Starred') {
         return Promise.resolve(gEmails.filter(email => {
-            return ((email.subject.toUpperCase().includes(filterBy.toUpperCase()) || email.body.toUpperCase().includes(filterBy.toUpperCase())) && email.isStarred)
+            return ((email.subject.includes(filterBy) || email.body.includes(filterBy)) && email.isStarred)
         }))
     }
 }

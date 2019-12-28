@@ -30,8 +30,9 @@ export default class NotesApp extends React.Component {
     }
 
     setFilterBy = (filterBy) => {
-        this.setState({ filterBy })
-        this.loadNotes(filterBy);
+        this.setState({ filterBy },
+            this.loadNotes(filterBy);
+        )
     }
 
     onDeleteNote = (noteId) => {

@@ -7,7 +7,7 @@ export default class NotesApp extends React.Component {
 
     state = {
         currNote: null,
-        filterBy: '',
+        filterBy:'',
         notes: []
     }
 
@@ -30,8 +30,9 @@ export default class NotesApp extends React.Component {
     }
 
     setFilterBy = (filterBy) => {
-        this.setState({ filterBy })
-        this.loadNotes(filterBy);
+        this.setState({ filterBy },
+            this.onLoadNotes()
+        )
     }
 
     onDeleteNote = (noteId) => {
@@ -44,8 +45,8 @@ export default class NotesApp extends React.Component {
             .then(notes => { this.setState({ notes }) })
     }
 
-    onLoadNotes = () => {
-        this.loadNotes(this.state.filterBy);
+    onLoadNotes=(this.prevState)=>{
+        this.loadNotes(prevState.filterBy);
     }
 
     render() {

@@ -1,4 +1,4 @@
-
+// import DynamicCmps from "./dynamic/DynamicCmps.jsx";
 
 export default class SearchNote extends React.Component {
 
@@ -21,4 +21,5 @@ export default class SearchNote extends React.Component {
             
         </form>
     }
+}
 }

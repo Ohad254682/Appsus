@@ -9,7 +9,7 @@ export default {
     createNotes,
     addNote,
     deleteNote,
-    editNote,
+    editNote
 }
 
 let gNotes = storageService.load('gNotes') || createNotes();
@@ -21,8 +21,8 @@ function getNoteById(noteId) {
     return Promise.resolve({ ...Note })
 }
 
-function getNotes(filterBy) {
-    return filterNotes(filterBy);
+function getNotes() {
+    return Promise.resolve([...gNotes])
 }
 
 function createNotes() {
@@ -98,14 +98,10 @@ function editNote(id, text) {
 
 
 function filterNotes(filterBy) {
-
-    return Promise.resolve(gNotes.filter(note => {
-        switch (note.type) {
-            case 'noteText': return note.info.txt.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteImg': return note.info.title.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteVideo': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
-        }
-
-    }))
+    if (filterMode === 'All') {
+        return Promise.resolve(gEmails.filter(email => {
+            return email.subject.includes(filterBy) || email.body.includes(filterBy)
+        }))
+    }
 }
 

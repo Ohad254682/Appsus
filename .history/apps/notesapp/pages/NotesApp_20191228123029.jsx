@@ -7,7 +7,7 @@ export default class NotesApp extends React.Component {
 
     state = {
         currNote: null,
-        filterBy: '',
+        filterBy:'',
         notes: []
     }
 
@@ -30,8 +30,9 @@ export default class NotesApp extends React.Component {
     }
 
     setFilterBy = (filterBy) => {
-        this.setState({ filterBy })
-        this.loadNotes(filterBy);
+        this.setState({ filterBy },
+            this.onLoadNotes()
+        )
     }
 
     onDeleteNote = (noteId) => {
@@ -44,7 +45,7 @@ export default class NotesApp extends React.Component {
             .then(notes => { this.setState({ notes }) })
     }
 
-    onLoadNotes = () => {
+    onLoadNotes=()=>{
         this.loadNotes(this.state.filterBy);
     }
 
@@ -52,7 +53,7 @@ export default class NotesApp extends React.Component {
         return <React.Fragment>
             <div className="notes-page-container">
                 <header>
-                    <SearchNote setFilterBy={this.setFilterBy}></SearchNote>
+                    <SearchNote />
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
                 <NotesList onLoadNotes={this.onLoadNotes} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} />

@@ -1,4 +1,4 @@
-
+// import DynamicCmps from "./dynamic/DynamicCmps.jsx";
 
 export default class SearchNote extends React.Component {
 
@@ -14,11 +14,13 @@ export default class SearchNote extends React.Component {
     }
 
     render() {
-        return <form>
-            <label htmlFor="searchTerm">
-                <input className="search-container"  placeholder="search a note" name="searchTerm" type="text" onChange={this.onChangeInput} value={this.state.searchTerm} />
-            </label>
-            
-        </form>
+        return <React.Fragment>
+            <section className="search-container">
+                <input type="text" placeholder="search a note"></input>
+                <button type="send">Search</button>
+            </section>
+
+
+        </React.Fragment>
     }
 }

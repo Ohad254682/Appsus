@@ -101,9 +101,9 @@ function filterNotes(filterBy) {
 
     return Promise.resolve(gNotes.filter(note => {
         switch (note.type) {
-            case 'noteText': return note.info.txt.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteImg': return note.info.title.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteVideo': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
+            case 'noteText': return note.info.txt.includes(filterBy);
+            case 'noteImg': return note.info.title.includes(filterBy);
+            case 'noteVideo': return note.info.label.includes(filterBy);
         }
 
     }))
