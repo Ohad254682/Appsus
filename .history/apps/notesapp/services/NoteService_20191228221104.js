@@ -80,7 +80,7 @@ function addNote(note) {
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [...gNotes, newNote]
+    gNotes = [newNote, ...gNotes]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }
@@ -172,8 +172,6 @@ function filterNotes(filterBy) {
             case 'noteText': return note.info.txt.toUpperCase().includes(filterBy.toUpperCase());
             case 'noteImg': return note.info.title.toUpperCase().includes(filterBy.toUpperCase());
             case 'noteVideo': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteTodos': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
-
         }
 
     }))

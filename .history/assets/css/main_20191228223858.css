@@ -497,7 +497,3 @@ input[type="radio"], input[type="checkbox"] {
     color:green;
     font-size:1.5rem;
 }
-
-.add-note-form{
-    display:flex;
-}

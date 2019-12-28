@@ -54,18 +54,18 @@ export default class AddNote extends React.Component {
 
         return <React.Fragment>
             <section className="add-note-container">
-                <form className="add-note-form">
+                <form>
                     <input type="text" name="textInput" value={this.state.textInput} placeholder={this.state.placeholder[this.state.type]} onChange={this.onInputChange} />
 
                     {((this.state.type === 'noteImg') || (this.state.type === 'noteVideo')) && <input type="url" name="urlInput" value={this.state.urlInput} placeholder="enter URL link" onChange={this.onInputChange} />}
 
                     <select name="type" value={this.state.type} onChange={this.onInputChange}>
-                        <option value="noteTodos">🖹 To Do</option>
-                        <option value="noteText">A Text</option>
-                        <option value="noteImg">🖼 Image</option>
-                        <option value="noteVideo">‣ Video</option>
+                        <option value="noteTodos">To Do</option>
+                        <option value="noteText">Text</option>
+                        <option value="noteImg">Image</option>
+                        <option value="noteVideo">Video</option>
                     </select>
-                    <button className="note-btn green" type="submit" onClick={this.onAddNote}>+</button>
+                    <button className="note-btn green" type="submit" className="send" onClick={this.onAddNote}>+</button>
                 </form>
             </section>
 
