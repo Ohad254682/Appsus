@@ -169,6 +169,6 @@ function filterNotes(filterBy) {
             case 'noteVideo': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
         }
 
-    }))
+    })).then(console.log)
 }
 

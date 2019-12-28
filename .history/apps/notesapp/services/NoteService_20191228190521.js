@@ -92,9 +92,11 @@ function deleteNote(noteId) {
 
 function editNoteColor(noteId, backgroundColor) {
     let editNote = gNotes.find(note => note.id === noteId)
-    let info = editNote.info;
+    editNote = { ...editNote };
+    info = editNote.info;
     info = { ...info, backgroundColor }
-    editNote = { ...editNote, info }
+    editNote.info.backgroundColor = color;
+    gNotes = [...gNotes, editNote]
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
     storageService.store('gNotes', gNotes)
     return Promise.resolve(editNote)

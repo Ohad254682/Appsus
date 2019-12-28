@@ -8,11 +8,17 @@ export default class NotesApp extends React.Component {
     state = {
         currNote: null,
         filterBy: '',
-        notes: []
+        notes: [],
+        colorMode: false
     }
 
     componentDidMount() {
         this.onLoadNotes();
+    }
+
+    onOpenColorPicker = (ev) => {
+        this.setState({ colorMode: true })
+        ev.stopPropagation();
     }
 
     // componentDidUpdate(prevState) {
@@ -64,9 +70,9 @@ export default class NotesApp extends React.Component {
 
     loadNotes = (filterBy) => {
         noteService.getNotes(filterBy)
-            .then(notes => { 
+            .then(notes => {
                 console.log(notes)
-                this.setState({ notes }) 
+                this.setState({ notes })
             })
     }
 

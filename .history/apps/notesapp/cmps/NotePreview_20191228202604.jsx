@@ -5,9 +5,9 @@ export default class NotePreview extends React.Component {
 
     state = {
         isEditMode: false,
-        colorMode: false,
         isPinned: false,
-        currNote: this.props.note,
+        colorMode: false,
+        currNote: this.props.note
     }
 
     componentDidMount() {
@@ -27,6 +27,11 @@ export default class NotePreview extends React.Component {
         return Icon;
     }
 
+    onToggleColorPicker = (ev) => {
+        this.setState((prevState) => ({ colorMode: !prevState.colorMode }))
+        ev.stopPropagation();
+    }
+
     onDeleteNote = (ev) => {
         this.props.onDeleteNote(this.props.note.id);
         ev.stopPropagation();
@@ -39,14 +44,6 @@ export default class NotePreview extends React.Component {
     onSelectNote = () => {
         this.setState({ currNote: this.props.note })
         this.props.onSelectNote(this.props.note);
-    }
-
-    onToggleColorMode = () => {
-        this.setState(prevState => ({ colorMode: !prevState.colorMode }))
-    }
-
-    onCloseColorPicker = () => {
-        this.setState({ colorMode: false })
     }
 
     onSetPinned = () => {
@@ -78,9 +75,9 @@ export default class NotePreview extends React.Component {
                 <div className="tools-bar">
                     <p className="note-icon">{this.onIconOfNote()}</p>
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
-                    <button className="note-btn" onClick={this.onToggleColorMode}>🎨</button>
+                    <button className="note-btn" onClick={this.props.onToggleColorPicker}>🎨</button>
                     <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
-                    {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
+                    {this.props.colorMode && <ColorPicker onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
                     <button className="note-btn" onClick={this.onSetPinned}>📌</button>
 
                     <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>

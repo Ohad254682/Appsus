@@ -5,7 +5,6 @@ export default class ColorPicker extends React.Component {
     }
 
     onChangeColor = (ev) => {
-        this.props.onCloseColorPicker();
         let newColor = ev.target.value;
         noteService.editNoteColor(this.props.note.id, newColor)
             .then(this.props.onLoadNotes)
