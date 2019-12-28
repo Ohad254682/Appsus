@@ -8,6 +8,8 @@ export default class NotePreview extends React.Component {
         colorMode: false,
         isPinned: false,
         currNote: this.props.note,
+        color: (this.props.note.info.backgroundColor) || '#fff8dc'
+        // color: '#fff8dc'
     }
 
     componentDidMount() {
@@ -33,20 +35,16 @@ export default class NotePreview extends React.Component {
     }
 
     onSetEditMode = () => {
-        this.setState(prevState => ({ isEditMode: !prevState.isEditMode }))
+        this.setState(prevState => ({ isEditMode: !prevState.isEditMode}))
     }
 
     onSelectNote = () => {
-        this.setState({ currNote: this.props.note })
-        this.props.onSelectNote(this.props.note);
+        this.setState({ currNote: this.props.note})
+        this.props.onSelectNote(this.props.note); 
     }
 
-    onToggleColorMode = () => {
+    onColorPicker = () => {
         this.setState(prevState => ({ colorMode: !prevState.colorMode }))
-    }
-
-    onCloseColorPicker = () => {
-        this.setState({ colorMode: false })
     }
 
     onSetPinned = () => {
@@ -54,8 +52,8 @@ export default class NotePreview extends React.Component {
     }
 
     onChangeColor = () => {
-        this.setState({ color: this.props.color })
-        this.props.onChangeColor(this.props.color);
+        this.setState({color: this.props.color})
+        this.props.onChangeColor(this.props.color); 
     }
 
     onCopyNote = () => {
@@ -67,7 +65,7 @@ export default class NotePreview extends React.Component {
 
     render() {
         if (!this.props.note) return null;
-        (this.state.isPinned ? (this.props.note.isPinned === true) : '')
+        (this.state.isPinned ? (this.props.note.isPinned === true): '')
         let type = this.props.note.type;
         let note = this.props.note;
 
@@ -78,9 +76,9 @@ export default class NotePreview extends React.Component {
                 <div className="tools-bar">
                     <p className="note-icon">{this.onIconOfNote()}</p>
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
-                    <button className="note-btn" onClick={this.onToggleColorMode}>🎨</button>
-                    <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
-                    {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
+                    <button className="note-btn" onClick={this.onColorPicker}>🎨</button>
+                    <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png"/></button>
+                    {this.state.colorMode ? <ColorPicker onLoadNotes={this.props.onLoadNotes} note={note} onChangeColor={this.props.onChangeColor}></ColorPicker> : ''}
                     <button className="note-btn" onClick={this.onSetPinned}>📌</button>
 
                     <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>

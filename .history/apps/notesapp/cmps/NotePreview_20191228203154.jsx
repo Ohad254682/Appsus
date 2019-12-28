@@ -80,7 +80,7 @@ export default class NotePreview extends React.Component {
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
                     <button className="note-btn" onClick={this.onToggleColorMode}>🎨</button>
                     <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
-                    {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
+                    {this.state.colorMode && <ColorPicker onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
                     <button className="note-btn" onClick={this.onSetPinned}>📌</button>
 
                     <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>

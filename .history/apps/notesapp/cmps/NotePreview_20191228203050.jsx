@@ -42,11 +42,16 @@ export default class NotePreview extends React.Component {
     }
 
     onToggleColorMode = () => {
-        this.setState(prevState => ({ colorMode: !prevState.colorMode }))
+        this.setState(prevState => ({ isEditMode: !prevState.isEditMode }))
     }
 
     onCloseColorPicker = () => {
         this.setState({ colorMode: false })
+    }
+
+    onOpenColorPicker = (ev) => {
+        this.setState({ colorMode: true })
+        ev.stopPropagation();
     }
 
     onSetPinned = () => {
@@ -78,9 +83,9 @@ export default class NotePreview extends React.Component {
                 <div className="tools-bar">
                     <p className="note-icon">{this.onIconOfNote()}</p>
                     <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
-                    <button className="note-btn" onClick={this.onToggleColorMode}>🎨</button>
+                    <button className="note-btn" onClick={this.onOpenColorPicker}>🎨</button>
                     <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
-                    {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
+                    {this.state.colorMode && <ColorPicker onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
                     <button className="note-btn" onClick={this.onSetPinned}>📌</button>
 
                     <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>

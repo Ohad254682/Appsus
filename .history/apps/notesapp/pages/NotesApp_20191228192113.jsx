@@ -64,9 +64,9 @@ export default class NotesApp extends React.Component {
 
     loadNotes = (filterBy) => {
         noteService.getNotes(filterBy)
-            .then(notes => { 
+            .then(notes => {
                 console.log(notes)
-                this.setState({ notes }) 
+                this.setState({ notes })
             })
     }
 

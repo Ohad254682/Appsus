@@ -8,11 +8,17 @@ export default class NotesApp extends React.Component {
     state = {
         currNote: null,
         filterBy: '',
-        notes: []
+        notes: [],
+        colorMode: false
     }
 
     componentDidMount() {
         this.onLoadNotes();
+    }
+
+    onToggleColorPicker = (ev) => {
+        this.setState(prevState => { colorMode: !prevState.colorMode })
+        ev.stopPropagation();
     }
 
     // componentDidUpdate(prevState) {
@@ -64,9 +70,9 @@ export default class NotesApp extends React.Component {
 
     loadNotes = (filterBy) => {
         noteService.getNotes(filterBy)
-            .then(notes => { 
+            .then(notes => {
                 console.log(notes)
-                this.setState({ notes }) 
+                this.setState({ notes })
             })
     }
 
@@ -81,7 +87,7 @@ export default class NotesApp extends React.Component {
                     <SearchNote setFilterBy={this.setFilterBy}></SearchNote>
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList onLoadNotes={this.onLoadNotes} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} onChangeColor={this.onChangeColor} onSelectNote={this.onSelectNote} onCopyNote={this.onCopyNote} />
+                <NotesList onLoadNotes={this.onLoadNotes} colorMode={this.state.colorMode} onOpenColorPicker={this.onOpenColorPicker} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} onChangeColor={this.onChangeColor} onSelectNote={this.onSelectNote} onCopyNote={this.onCopyNote} />
             </div>
         </React.Fragment>
     }
