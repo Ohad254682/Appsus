@@ -75,6 +75,16 @@ button {
     padding: 0 10px;
 }
 
+.main-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 0;
+    background-color: #eee;
+}
+
 .main-nav {
     width: 100%;
     background-color: #e3e3e3;
@@ -97,6 +107,10 @@ button {
 
 .active-link {
     color: #72559f;
+}
+
+img.logo {
+    width: 70px;
 }
 
 /* Mails */
@@ -138,7 +152,13 @@ input[type="text"].searchTerm {
     background-repeat: no-repeat;
     background-position: 3px 7px;
     background-size: 27px;
-    text-indent: 20px;
+    text-indent: 24px;
+    background-position: 3px 7px;
+    background-size: 27px;
+    position: absolute;
+    top: 29px;
+    left: 150px;
+    z-index: 11;
 }
 
 .email-list-container {
@@ -293,8 +313,40 @@ input[type="text"] {
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding-top: 40px;
+    padding-top: 25px;
     flex-wrap: wrap;
+}
+
+.notes-page-container>header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 33px;
+}
+
+section.add-note-container {
+    width: 100%;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+}
+
+section.add-note-container form {
+    display: flex;
+    justify-content: center;
+}
+
+select[name="type"] {
+    height: 100%;
+    font-size: 1.1rem;
+    padding: 8px 2px;
+}
+
+section.add-note-container form button[type="submit"] {
+    width: 80px;
+    height: auto;
+    font-weight: 900;
 }
 
 .notes-page-container>ul {
@@ -315,6 +367,10 @@ article.cards-container {
     flex-direction: column;
     justify-content: space-between;
     transition: background-color .3s ease-out;
+}
+
+article#container:hover {
+    box-shadow: 0px 0px 7px grey;
 }
 
 article.cards-container img {
@@ -364,7 +420,6 @@ article.cards-container img {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-
 .textarea-note:disabled {
     border: transparent;
     box-shadow: none;
@@ -380,8 +435,8 @@ article.cards-container img {
     background-color: transparent;
     transform: translate(0, 0);
     transition: .4s ease-out;
-    margin-top: 29px;
     display: inline-flex;
+    transform: translate(17px, 31px);
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -483,13 +538,25 @@ input[type="radio"], input[type="checkbox"] {
     content: '#f1c40f';
 }
 
-.todo-isdone{
+.todo-isdone {
     text-decoration: line-through;
 }
 
-.todolist{
-    border-bottom:1px dashed gray;
-    height:50px; 
-    display:flex;
+.todolist {
+    border-bottom: 1px dashed gray;
+    height: 50px;
+    display: flex;
+}
 
+/*** Mobile ***/
+
+@media (max-width: 770px) {
+    html {
+        font-size: 14px;
+    }
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+ 
 }
