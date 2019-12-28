@@ -80,7 +80,7 @@ function addNote(note) {
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [...gNotes, newNote]
+    gNotes = [newNote, ...gNotes]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }
@@ -101,12 +101,12 @@ function editNoteColor(noteId, backgroundColor) {
     return Promise.resolve(editNote)
 }
 
-function copyNote(noteId) {
+function copyNote(note) {
     let copiedNote = gNotes.find(note => note.id === noteId)
     copiedNote = { ...copiedNote };
     copiedNote.id = getRandomId();
     gNotes = [...gNotes, copiedNote]
-    // gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
+    gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
     storageService.store('gNotes', gNotes)
     return Promise.resolve(copiedNote)
 }
@@ -134,8 +134,6 @@ function editNote(id, text) {
     editNote = { ...editNote, info };
 
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
-
-    console.log(gNotes);
 
     storageService.store('gNotes', gNotes);
 
@@ -172,8 +170,6 @@ function filterNotes(filterBy) {
             case 'noteText': return note.info.txt.toUpperCase().includes(filterBy.toUpperCase());
             case 'noteImg': return note.info.title.toUpperCase().includes(filterBy.toUpperCase());
             case 'noteVideo': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
-            case 'noteTodos': return note.info.label.toUpperCase().includes(filterBy.toUpperCase());
-
         }
 
     }))

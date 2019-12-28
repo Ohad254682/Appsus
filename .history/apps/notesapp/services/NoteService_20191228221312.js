@@ -80,7 +80,7 @@ function addNote(note) {
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [...gNotes, newNote]
+    gNotes = [newNote, ...gNotes]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }
@@ -101,12 +101,12 @@ function editNoteColor(noteId, backgroundColor) {
     return Promise.resolve(editNote)
 }
 
-function copyNote(noteId) {
+function copyNote(note) {
     let copiedNote = gNotes.find(note => note.id === noteId)
     copiedNote = { ...copiedNote };
     copiedNote.id = getRandomId();
     gNotes = [...gNotes, copiedNote]
-    // gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
+    gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
     storageService.store('gNotes', gNotes)
     return Promise.resolve(copiedNote)
 }

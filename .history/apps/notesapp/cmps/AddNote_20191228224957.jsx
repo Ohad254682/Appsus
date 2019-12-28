@@ -60,12 +60,12 @@ export default class AddNote extends React.Component {
                     {((this.state.type === 'noteImg') || (this.state.type === 'noteVideo')) && <input type="url" name="urlInput" value={this.state.urlInput} placeholder="enter URL link" onChange={this.onInputChange} />}
 
                     <select name="type" value={this.state.type} onChange={this.onInputChange}>
-                        <option name="noteTodos" value="noteTodos">🖹</option>
-                        <option name="noteText" value="noteText">A</option>
-                        <option name="noteImg" value="noteImg">🖼</option>
-                        <option name="noteVideo" value="noteVideo">‣</option>
+                        <option value="noteTodos">🖹 To Do</option>
+                        <option value="noteText">A Text</option>
+                        <option value="noteImg">🖼 Image</option>
+                        <option value="noteVideo">‣ Video</option>
                     </select>
-                    <button type="submit" className="note-btn green" onClick={this.onAddNote}>+</button>
+                    <button className="note-btn green" type="submit" onClick={this.onAddNote}>+</button>
                 </form>
             </section>
 
@@ -73,5 +73,3 @@ export default class AddNote extends React.Component {
 
     }
 }
-
-   

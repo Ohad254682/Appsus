@@ -4,7 +4,7 @@ export default class Todo extends React.Component {
     todos = this.props.note.info.todos;
 
     state = {
-        textarea:'',
+        textarea: null,
         label: this.props.note.info.label
     }
 
