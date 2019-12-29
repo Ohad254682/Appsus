@@ -263,11 +263,27 @@ p.email-subject {
     background: rgba(242, 245, 245, 0.8);
 }
 
+.back-btn {
+    margin-top: 7px;
+    background-color: transparent;
+    border: 1px solid #72559f;
+    border-radius: 3px;
+    transition: 0.2s;
+    width: 115px;
+}
+
+.back-btn:hover {
+    background-color: #72559f;
+    color: white;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 75%;
     padding: 25px;
+    position: absolute;
+    margin: auto;
 }
 
 .form-container h2 {
@@ -291,6 +307,10 @@ input[type="text"] {
     text-indent: 7px;
 }
 
+.send-cancel-btns {
+    display: flex;
+}
+
 .btn-send {
     align-items: center;
     display: flex;
@@ -302,7 +322,7 @@ input[type="text"] {
     border-radius: 4px;
     cursor: pointer;
     font-weight: 500;
-    height: 36px;
+    height: 47px;
     min-width: 80px;
     outline: none;
     padding: 0 16px;
@@ -310,8 +330,32 @@ input[type="text"] {
     opacity: 0.87;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     color: #fff;
     border: none;
+    flex-grow: 3;
+}
+
+.btn-cancel {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 1.175rem;
+    letter-spacing: .25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    height: 47px;
+    min-width: 80px;
+    outline: none;
+    padding: 0 16px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    flex-grow: 1;
 }
 
 .preview-btns-container {
@@ -391,6 +435,10 @@ article.cards-container {
     flex-direction: column;
     justify-content: space-between;
     transition: background-color .3s ease-out;
+}
+
+span.pinned {
+    display: flex;
 }
 
 article#container:hover {

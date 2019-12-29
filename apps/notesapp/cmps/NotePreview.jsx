@@ -75,11 +75,13 @@ export default class NotePreview extends React.Component {
         let pinnedBorder = (this.props.note.isPinned ? '2px solid green' : 'none')
         let pinnedBoxShadow = (this.props.note.isPinned ? 'box-shadow: 0px 0px 4px 0px green' : '')
         let pinnedIcon = (this.props.note.isPinned ? '#e3e3e3' : 'transparent')
+        let visiblePinned = (this.props.note.isPinned ? 'visible' : 'hidden')
         let type = this.props.note.type;
         let note = this.props.note;
 
         return (
             <article className="cards-container" id="container" style={{ order: pinnedOrder, backgroundColor: this.props.note.info.backgroundColor, border: pinnedBorder, pinnedBoxShadow  }} onClick={this.onSelectNote}>
+                <span className="pinned" style={{visibility: visiblePinned}}>📌</span>
                 <DynamicCmps onLoadNotes={this.props.onLoadNotes} onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onTogglePinned}></DynamicCmps>
 
                 <div className="tools-bar">
