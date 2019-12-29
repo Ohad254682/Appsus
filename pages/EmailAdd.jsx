@@ -4,7 +4,7 @@ export default class EmailAdd extends React.Component {
 
     state = {
         subject: '',
-        body: ''
+        body: '',
     }
 
     componentDidMount() {
@@ -32,8 +32,10 @@ export default class EmailAdd extends React.Component {
                 <div className="inputs">
                     <input type="text" placeholder="subject " value={this.state.subject} name="subject" onChange={this.onInputChange} />
                     <textarea type="text" placeholder="" name="body" rows="15" cols="50" onChange={this.onInputChange} value={this.state.body}></textarea>
-
-                    <button type="submit" className="btn btn-send" onClick={this.onAddEmail}>Send</button>
+                    <div className="send-cancel-btns">
+                        <button type="submit" className="btn btn-send" onClick={this.onAddEmail}>Send</button>
+                        <button className="btn btn-cancel" onClick={this.props.stopComposing}>Cancel</button>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
