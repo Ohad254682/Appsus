@@ -49,7 +49,7 @@ export default class NotePreview extends React.Component {
         this.setState({ colorMode: false })
     }
 
-    onSetPinned = () => {
+    onTogglePinned = () => {
         this.setState(prevState => ({ isPinned: !prevState.isPinned }))
     }
 
@@ -66,13 +66,13 @@ export default class NotePreview extends React.Component {
 
     render() {
         if (!this.props.note) return null;
-        (this.state.isPinned ? (this.props.note.isPinned === true) : '')
+        let pinnedOrder = (this.state.isPinned ? ('order: -1') : ('order: 1'))
         let type = this.props.note.type;
         let note = this.props.note;
 
         return (
-            <article className="cards-container" id="container" style={{ backgroundColor: this.props.note.info.backgroundColor }} onClick={this.onSelectNote}>
-                <DynamicCmps onLoadNotes={this.props.onLoadNotes} onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onSetPinned}></DynamicCmps>
+            <article className="cards-container" id="container" style={{ backgroundColor: this.props.note.info.backgroundColor, pinnedOrder }} onClick={this.onSelectNote}>
+                <DynamicCmps onLoadNotes={this.props.onLoadNotes} onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onTogglePinned}></DynamicCmps>
 
                 <div className="tools-bar">
                     <p title={this.props.note.type} className="note-icon">{this.onIconOfNote()}</p>
@@ -80,7 +80,7 @@ export default class NotePreview extends React.Component {
                     <button title="Change color" className="note-btn" onClick={this.onToggleColorMode} note={note}>🎨</button>
                     <button title="Copy note" className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
                     {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
-                    <button title="Pin note" className="note-btn" onClick={this.onSetPinned}>📌</button>
+                    <button title="Pin note" className="note-btn" onClick={this.onTogglePinned}>📌</button>
 
                     <button title="Delete note" className="note-btn" onClick={this.onDeleteNote}>🗑️</button>
                 </div>
