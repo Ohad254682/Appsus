@@ -1,7 +1,7 @@
 export const notesData = [
     {
         type: "noteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             txt: "Fullstack Me Baby!"
@@ -10,6 +10,7 @@ export const notesData = [
     },
     {
         type: "noteImg",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             url: "../../../assets/images/Sea_Otter.jpg",
@@ -19,6 +20,7 @@ export const notesData = [
     },
     {
         type: "noteTodos",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             label: "How was it:",
@@ -31,6 +33,7 @@ export const notesData = [
     },
     {
         type: "noteVideo",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",
@@ -40,7 +43,7 @@ export const notesData = [
     },
     {
         type: "noteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             txt: "Fullstack Me Baby!"
@@ -49,6 +52,7 @@ export const notesData = [
     },
     {
         type: "noteImg",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             url: "../../../assets/images/Sea_Otter.jpg",
@@ -58,6 +62,7 @@ export const notesData = [
     },
     {
         type: "noteVideo",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",
@@ -67,6 +72,7 @@ export const notesData = [
     },
     {
         type: "noteVideo",
+        isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
             label: "You won't believe what happens next:",

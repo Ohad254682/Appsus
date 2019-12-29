@@ -6,7 +6,7 @@ export default class SideNav extends React.Component {
         return <nav className="side-nav-email">
             <ul>
                 <li>
-                    <button className="compose-btn" onClick={this.props.startComposing}>Compose +</button>
+                    <button title="Compose Email" id="compose-btn" className="side-nav-btn compose-btn" onClick={this.props.startComposing}>+</button>
                 </li>
                 <li>
                     <button className="btn side-nav-btn" onClick={this.props.filterAll}>Inbox <EmailStatus></EmailStatus></button>
