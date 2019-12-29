@@ -14,7 +14,7 @@ export default class EmailDetails extends React.Component {
                     <p>{email.body}</p>
                     <p>{new Date(email.sentAt).toLocaleDateString()}</p>
                 </div>
-                <button className="reply-btn" onClick={this.props.onReply}>Reply</button>
+                <button className="reply-btn" onClick={this.props.onReply}>RE</button>
             </section>
         )
     }

@@ -31,13 +31,14 @@ export default class EmailAdd extends React.Component {
 
 
     render() {
+        let hr = '<hr></hr>'
         return <React.Fragment>
           
             <div className="form-container">
                 <h2>New Message</h2>
                 <div className="inputs">
                     <input type="text" placeholder="subject " value={this.state.subject} name="subject" onChange={this.onInputChange} />
-                    <textarea type="text" placeholder="" name="body" rows="15" cols="50" onChange={this.onInputChange} value={this.state.body}></textarea>
+    <textarea type="text" placeholder="" name="body" rows="15" cols="50" onChange={this.onInputChange} value={this.state.body}>{<hr></hr>}</textarea>
                     <div className="send-cancel-btns">
                         <button type="submit" className="btn btn-send" onClick={this.onAddEmail}>Send</button>
                         <button className="btn btn-cancel" onClick={this.props.stopComposing}>Cancel</button>

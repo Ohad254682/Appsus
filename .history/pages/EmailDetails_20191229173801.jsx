@@ -1,7 +1,5 @@
 
-
 export default class EmailDetails extends React.Component {
-
 
     render() {
         const { email } = this.props;
@@ -10,11 +8,11 @@ export default class EmailDetails extends React.Component {
             <section>
                 <button className="back-btn" onClick={this.props.removeSelectedEmail}>Back</button>
                 <div className="email-details">
-                    <h2>{email.subject}</h2>
+                    <h2>Subject: {email.subject}</h2>
                     <p>{email.body}</p>
                     <p>{new Date(email.sentAt).toLocaleDateString()}</p>
                 </div>
-                <button className="reply-btn" onClick={this.props.onReply}>Reply</button>
+                <button>RE</button>
             </section>
         )
     }

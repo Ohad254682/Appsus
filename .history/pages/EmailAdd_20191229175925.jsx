@@ -8,18 +8,22 @@ export default class EmailAdd extends React.Component {
     }
 
     componentDidMount() {
-        
         if (!this.props.email) this.setState({ subject: '', body: '' });
-        else this.setState({
-            subject: `RE: ${this.props.email.subject}`,
-            body: this.props.email.body
-        });
+        else this.setState({ subject: "RE: " + this.state.email.subject });
+        EmailsService.on('reply', onReply);
     }
 
 
     onAddEmail = (ev) => {
         ev.preventDefault()
         const { subject, body } = this.state
+        EmailsService.addEmail({ subject, body })
+            .then(this.props.stopComposing);
+    }
+
+    onReply = () => {
+        const { subject, body } = this.state
+        subject = 'RE: ' + subject;
         EmailsService.addEmail({ subject, body })
             .then(this.props.stopComposing);
     }
@@ -32,7 +36,6 @@ export default class EmailAdd extends React.Component {
 
     render() {
         return <React.Fragment>
-          
             <div className="form-container">
                 <h2>New Message</h2>
                 <div className="inputs">

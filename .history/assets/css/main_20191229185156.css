@@ -380,19 +380,7 @@ input[type="text"] {
 .reply-btn{
     background-color: transparent;
     color: #72559f;
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: .25px;
-    border-radius: 4px;
-    font-weight: 500;
-    height: 47px;
-    min-width: 80px;
-    padding: 0 16px;
-    box-shadow: 0px 0px 7px 1px #72559f;
-    border-radius: 20px;
-    border:0px;
 }
-
 
 .preview-btns-container {
     display: flex;
