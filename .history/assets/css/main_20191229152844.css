@@ -69,16 +69,6 @@ button {
     cursor: pointer;
 }
 
-/*Utils*/
-
-.main-nav-container.none{
-    display:none;
-}
-
-.main-nav-container.flex{
-    display:flex;
-}
-
 /* Layout */
 
 .container {
@@ -110,11 +100,11 @@ button {
     align-items: center;
 }
 
-.main-nav-container {
+.main-nav ul {
     display: flex;
 }
 
-.main-nav-container li {
+.main-nav ul li {
     margin-left: 15px;
 }
 
@@ -126,14 +116,22 @@ img.logo {
     width: 70px;
 }
 
-.menu-btn-mobile{
-    background-color:transparent;
-    color:#72559f;
-    font-size: 2rem;
-    border:0px;
-    display:none;
-}
-
+    .main-nav-container{
+        position:fixed;
+        flex-direction:column;
+        justify-content:space-around;
+        align-content:flex-start;
+        display:none;
+        height: 168px;
+        width:100%;
+        background-color: rgb(114, 85, 159,0.5);
+        z-index:1;
+        border-radius: 15px;
+        top: 0px;
+        left: 80%;
+        margin-top: 0px;
+        box-sizing: border-box;
+    }
 
 /* Mails */
 
@@ -642,9 +640,9 @@ input[type="url"] {
     font-size: 1.5rem;
 }
 
-.todo-task {
-    width: 100%;
-    display: flex;
+.todo-task{
+    width:100%;
+    display:flex;
 }
 
 @media (max-width: 1100px) {
@@ -658,124 +656,10 @@ input[type="url"] {
     html {
         font-size: 14px;
     }
-    /* layout */
-    main {
-        max-height: 100vh;
-        overflow-y: scroll;
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-    }
-    .main-footer {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
     .container {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .main-nav {
-        padding: 4px 10px;
-    }
-    img.logo {
-        width: 55px;
-    }
-    /* EMAILS */
-    .emails-page-container {
-        flex-direction: column;
-    }
-    .email-list-container {
-        padding: 10px;
-        padding-top: 0;
-    }
-    .email-list-container tbody {
-        display: flex;
-        flex-direction: column;
-        margin-top: 15px;
-    }
-    .email-preview {
-        display: flex;
-        flex-wrap: nowrap;
-        max-width: 100vw;
-    }
-    button.btn.star-btn {
-        width: 23px;
-    }
-    .email-preview p {
-        width: 90px;
-    }
-    .side-nav-email {
-        height: auto;
-        padding-top: 0;
-        box-shadow: 5px 1px 11px 2px #e3e3e3;
-    }
-    .side-nav-btn {
-        margin-top: 0;
-        width: 47.2vw;
-    }
-    .side-nav-btn:hover {
-        margin-top: 0;
-    }
-    .side-nav-email ul {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .side-nav-email ul div:nth-child(2) {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        max-width: 100vw;
-        z-index: 9999;
-        padding: 0;
-        position: absolute;
-        top: 109px;
-        margin: auto;
-    }
-    section.add-note-container form {
-        flex-wrap: wrap;
-    }
-    .email-list-container .side-nav-btn {
-        width: 35vw;
-    }
-    input[type="text"].searchTerm.mail-search {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1;
-        border: 1px solid #72559f;
-        border-radius: 3px;
-        transition: 0.2s;
-    }
-    .compose-btn {
-        background-color: #72559f;
-        color: white;
-        border: 1px solid #72559f;
-        border-radius: 3px;
-        transition: 0.2s;
-        width: 100%;
-        grid-area: compose;
-        margin: 0;
-    }
-    #inbox-btn {
-        grid-area: inbox;
-    }
-    #read-btn {
-        grid-area: read;
-    }
-    #unread-btn {
-        grid-area: unread;
-    }
-    #star-btn {
-        grid-area: starred;
-    }
-    /* NOTES */
     .add-note-form {
         display: flex;
     }
@@ -784,40 +668,4 @@ input[type="url"] {
         grid-template-columns: repeat(1, minmax(250px, 400px));
         grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
     }
-
-    input[type="text"].searchTerm.searchNote {
-        top: 34px;
-        left: 75px;
-    }
-}
-
-
-@media (max-width:700px){
-    .main-nav-container{
-        position:fixed;
-        flex-direction:column;
-        justify-content:space-around;
-        align-content:flex-start;
-        display:none;
-        height: 168px;
-        width:100%;
-        background-color: rgb(114, 85, 159,0.8);
-        z-index:2;
-        border-radius: 15px;
-        top: 0px;
-        left: 80%;
-        margin-top: 0px;
-        box-sizing: border-box;
-        color:rgb(40, 6, 92);
-        text-shadow: white 0px 0px 11px;
-    }
-
-    .menu-btn-mobile{
-        display:inline;
-    }
-
-    .active-link {
-        color: white;
-    }
-
 }

@@ -3,13 +3,12 @@ const { NavLink } = ReactRouterDOM
 export default class MainNav extends React.Component {
 
     state = {
-        menuShown: true
+        menuShown: false
     }
 
     componentDidMount() {
         window.addEventListener('resize', this.setToFlexOnExpand);
         window.addEventListener('click', this.closeMobileMenu);
-        if (window.innerWidth <= 700) this.setState({ menuShown: false });
     }
 
     closeMobileMenu = () => {

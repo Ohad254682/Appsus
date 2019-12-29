@@ -3,13 +3,12 @@ const { NavLink } = ReactRouterDOM
 export default class MainNav extends React.Component {
 
     state = {
-        menuShown: true
+        menuShown: false
     }
 
     componentDidMount() {
         window.addEventListener('resize', this.setToFlexOnExpand);
         window.addEventListener('click', this.closeMobileMenu);
-        if (window.innerWidth <= 700) this.setState({ menuShown: false });
     }
 
     closeMobileMenu = () => {
@@ -35,10 +34,10 @@ export default class MainNav extends React.Component {
             {!this.state.menuShown && <button className="menu-btn-mobile" onClick={this.onToggleMenu}>☰</button>}
             <ul className={this.state.menuShown ? "main-nav-container flex" : "main-nav-container none"} >
                 <li>
-                    <NavLink  exact to='/' activeClassName="active-link">E-Mails</NavLink>
+                    <NavLink onClick={(ev) => ev.stopPropagation()} exact to='/' activeClassName="active-link">E-Mails</NavLink>
                 </li>
                 <li>
-                    <NavLink  to='/notes' activeClassName="active-link">Notes</NavLink>
+                    <NavLink onClick={(ev) => ev.stopPropagation()} to='/notes' activeClassName="active-link">Notes</NavLink>
                 </li>
             </ul>
         </nav >

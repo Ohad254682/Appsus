@@ -55,7 +55,7 @@ export const notesData = [
         isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
-            url: "assets/images/Sea_Otter.jpg",
+            url: "../../../assets/images/Sea_Otter.jpg",
             title: "Me playing Mi"
         },
         id: '111iuiuiaaacc'
