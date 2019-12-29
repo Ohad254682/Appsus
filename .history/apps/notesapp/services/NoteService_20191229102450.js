@@ -131,8 +131,11 @@ function editNote(id, text) {
         case 'noteTodos': label = text; info = { ...info, label }; break;
     }
     editNote = { ...editNote, info };
+
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
+
     storageService.store('gNotes', gNotes);
+
     return Promise.resolve(editNote)
 }
 
