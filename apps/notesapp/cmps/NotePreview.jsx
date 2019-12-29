@@ -58,14 +58,9 @@ export default class NotePreview extends React.Component {
         this.props.onChangeColor(this.props.color);
     }
 
-    onCopyNote = (note) => {
-        console.log(note);
-    
-        
-        let { currNote } = this.state;
-        // this.props.onCopyNote({ ...this.state });
+    onCopyNote = () => {
+        let { note } = this.props;
         this.props.onCopyNote(note);
-        console.log({ currNote });
     }
 
 
@@ -80,14 +75,14 @@ export default class NotePreview extends React.Component {
                 <DynamicCmps onLoadNotes={this.props.onLoadNotes} onEditMode={this.onEditMode} type={type} note={note} isEditMode={this.state.isEditMode} isPinned={this.onSetPinned}></DynamicCmps>
 
                 <div className="tools-bar">
-                    <p className="note-icon">{this.onIconOfNote()}</p>
-                    <button className="note-btn" onClick={this.onSetEditMode}>📝</button>
-                    <button className="note-btn" onClick={this.onToggleColorMode} note={note}>🎨</button>
-                    <button className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
+                    <p title={this.props.note.type} className="note-icon">{this.onIconOfNote()}</p>
+                    <button title="Edit note" className="note-btn" onClick={this.onSetEditMode}>📝</button>
+                    <button title="Change color" className="note-btn" onClick={this.onToggleColorMode} note={note}>🎨</button>
+                    <button title="Copy note" className="note-btn" onClick={this.onCopyNote}><img src="../../assets/images/icons/copy.png" /></button>
                     {this.state.colorMode && <ColorPicker onCloseColorPicker={this.onCloseColorPicker} onLoadNotes={this.props.onLoadNotes} note={note}></ColorPicker>}
-                    <button className="note-btn" onClick={this.onSetPinned}>📌</button>
+                    <button title="Pin note" className="note-btn" onClick={this.onSetPinned}>📌</button>
 
-                    <button className="note-btn" onClick={this.onDeleteNote}>🗑️</button>
+                    <button title="Delete note" className="note-btn" onClick={this.onDeleteNote}>🗑️</button>
                 </div>
             </article>
         )

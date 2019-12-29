@@ -106,7 +106,6 @@ function copyNote(noteId) {
     copiedNote = { ...copiedNote };
     copiedNote.id = getRandomId();
     gNotes = [...gNotes, copiedNote]
-    // gNotes = gNotes.map(note => copiedNote.id === note.id ? copiedNote : note);
     storageService.store('gNotes', gNotes)
     return Promise.resolve(copiedNote)
 }

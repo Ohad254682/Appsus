@@ -40,7 +40,7 @@ export default class EmailPreview extends React.Component {
         return (
             <tr className="email-preview" onClick={this.onSelectEmail}>
                 <td>
-                    <button className="btn star-btn" onClick={this.ontoggleStarred}>{this.props.email.isStarred ? '⭐' : '✰'}</button>
+                    <button title="Star email" className="btn star-btn" onClick={this.ontoggleStarred}>{this.props.email.isStarred ? '⭐' : '✰'}</button>
                 </td>
                 <td>
                     <p className={this.props.email.isRead ? "gray email-subject" : "black email-subject"}>{this.props.email.subject}</p>
@@ -52,8 +52,8 @@ export default class EmailPreview extends React.Component {
                 <td>
                 <div className="preview-btns-container" >
                     <div className="icons-preview-container">
-                        <button onClick={this.onDeleteMail}>🗑️</button>
-                        <button onClick={this.onMarkToUnread}>✉</button>
+                        <button title="Delete" onClick={this.onDeleteMail}>🗑️</button>
+                        <button title="Mark unread" onClick={this.onMarkToUnread}>✉</button>
                     </div>
                     <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                 </div>

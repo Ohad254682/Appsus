@@ -87,6 +87,7 @@ button {
 
 .main-nav {
     width: 100%;
+    min-height: 100px;
     background-color: #e3e3e3;
     height: unset;
     justify-content: center;

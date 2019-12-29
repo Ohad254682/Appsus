@@ -30,9 +30,7 @@ export default class NotesApp extends React.Component {
     }
 
     onCopyNote = (note) => {
-        console.log(note);
-
-        noteService.copyNote(this.state.currNote.id).then(this.onLoadNotes());
+        noteService.copyNote(note.id).then(this.onLoadNotes());
     }
 
     onAddNote = (addedNote) => {
