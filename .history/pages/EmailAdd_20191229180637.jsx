@@ -1,4 +1,5 @@
 import EmailsService from "../services/EmailsService.js";
+import EventBusServices from '../services/EventBusServices'
 
 export default class EmailAdd extends React.Component {
 
@@ -8,12 +9,9 @@ export default class EmailAdd extends React.Component {
     }
 
     componentDidMount() {
-        
         if (!this.props.email) this.setState({ subject: '', body: '' });
-        else this.setState({
-            subject: `RE: ${this.props.email.subject}`,
-            body: this.props.email.body
-        });
+        else this.setState({ subject: "RE: " + this.state.email.subject });
+        EventBusServices.on('reply', onReply);
     }
 
 
@@ -24,6 +22,16 @@ export default class EmailAdd extends React.Component {
             .then(this.props.stopComposing);
     }
 
+    onReply = () => {
+        const { subject, body } = this.state
+        subject = 'RE: ' + subject;
+        this.setState({subject},
+        //      EmailsService.addEmail({ subject, body })
+        // .then(this.props.stopComposing)
+        );
+       
+    }
+
     onInputChange = (ev) => {
         let fieldName = ev.target.name
         this.setState({ [fieldName]: ev.target.value })
@@ -32,7 +40,6 @@ export default class EmailAdd extends React.Component {
 
     render() {
         return <React.Fragment>
-          
             <div className="form-container">
                 <h2>New Message</h2>
                 <div className="inputs">

@@ -58,7 +58,7 @@ export default class EmailsPage extends React.Component {
     }
 
     onReply=()=>{
-        this.startComposing();
+        startComposing();
     }
 
     filterReadMails = () => {
@@ -88,7 +88,6 @@ export default class EmailsPage extends React.Component {
 
 
     render() {
-        console.log(this.state.selectedEmail)
         return (
             <div className="emails-page-container">
                 <SideNav filterStarredMails={this.filterStarredMails} filterAll={this.filterAll} filterReadMails={this.filterReadMails} filterUnreadMails={this.filterUnreadMails} startComposing={this.startComposing} emails={this.state.emails}></SideNav>

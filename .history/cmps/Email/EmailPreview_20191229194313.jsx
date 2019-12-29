@@ -3,7 +3,7 @@ import EmailsService from "../../services/EmailsService.js";
 import EventBusServices from '../../services/EventBusServices.js'
 
 export default class EmailPreview extends React.Component {
-
+    
     state = {
         isLongTxtShown: false
     }
@@ -50,16 +50,15 @@ export default class EmailPreview extends React.Component {
                 </td>
                 {/* <p>{this.props.email.body}</p> */}
                 <td>
-                    <div className="preview-btns-container" >
-                        <div className="icons-preview-container">
-                            <button title="Delete" onClick={this.onDeleteMail}>🗑️</button>
-                            <button title="Mark unread" onClick={this.onMarkToUnread}>{this.props.email.isRead ? <img src="assets\images\icons\open-envelope.png"></img> :
-                                <img src="assets\images\icons\closed-envelope.png"></img>} </button>
-                        </div>
-                        <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
+                <div className="preview-btns-container" >
+                    <div className="icons-preview-container">
+                        <button title="Delete" onClick={this.onDeleteMail}>🗑️</button>
+                        <button title="Mark unread" onClick={this.onMarkToUnread}><img src=""></img></button>
                     </div>
+                    <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
+                </div>
                 </td>
-            </tr>
+            </tr>✉
         )
     }
 }

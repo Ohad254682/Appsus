@@ -59,7 +59,7 @@ export default class EmailPreview extends React.Component {
                         <h4>{new Date(this.props.email.sentAt).toLocaleDateString()}</h4>
                     </div>
                 </td>
-            </tr>
+            </tr>✉
         )
     }
 }
