@@ -67,7 +67,7 @@ function addNote(note) {
         case "noteTodos":
             info = {
                 label: note.textInput,
-                todos: [{ id: getRandomId(), txt: '', isDone: false }],
+                todos: [{}],
                 backgroundColor: "#fff8dc"
             }
             break;
@@ -123,7 +123,7 @@ function editNote(noteId, text, todoId) {
     let editNote = gNotes.find(note => note.id === noteId)
 
     let info = editNote.info;
-    let label, txt, title, todos, editTodo;
+    let label, txt, title, todos;
     switch (editNote.type) {
         case 'noteText': txt = text; info = { ...info, txt }; break;
         case 'noteImg': title = text; info = { ...info, title }; break;
@@ -136,9 +136,8 @@ function editNote(noteId, text, todoId) {
                 editTodo = editNote.info.todos.find(todo => todo.id === todoId);
                 txt = text;
                 editTodo = { ...editTodo, txt };
-                todos = editNote.info.todos;
-                todos = todos.map(todo => todo.id == editTodo.id ? editTodo : todo);
-                info = { ...info, todos };
+                editNote.info.todos.map(todo => todo.id === editTodo.id ? editTodo : todo)
+
             }
             break;
     }

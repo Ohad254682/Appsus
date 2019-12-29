@@ -67,7 +67,7 @@ function addNote(note) {
         case "noteTodos":
             info = {
                 label: note.textInput,
-                todos: [{ id: getRandomId(), txt: '', isDone: false }],
+                todos: [{}],
                 backgroundColor: "#fff8dc"
             }
             break;
@@ -137,7 +137,7 @@ function editNote(noteId, text, todoId) {
                 txt = text;
                 editTodo = { ...editTodo, txt };
                 todos = editNote.info.todos;
-                todos = todos.map(todo => todo.id == editTodo.id ? editTodo : todo);
+                todos.map(todo => todo.id == editTodo.id ? editTodo : todo);
                 info = { ...info, todos };
             }
             break;

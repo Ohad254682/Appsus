@@ -26,7 +26,7 @@ export default class Todo extends React.Component {
             <input type="text" className="textarea-note" name="label" type="text" placeholder="my to-do list" onChange={this.onChangeInput} value={this.state.label} disabled={this.props.isEditMode ? false : true}></input>
             <ul>
                 {this.props.note.info.todos.map(todo =>
-                    <TodoTask isEditMode={this.props.isEditMode} onLoadNotes={this.props.onLoadNotes} note={this.props.note} todo={todo}></TodoTask>)}
+                    <TodoTask  onLoadNotes={this.props.onLoadNotes} note={this.props.note} todo={todo}></TodoTask>)}
             </ul>
             <button className="note-btn green" onClick={this.onAddTodo}>+</button>
 
