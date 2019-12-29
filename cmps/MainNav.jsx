@@ -11,7 +11,7 @@ export default class MainNav extends React.Component {
     }
 
     render() {
-        let logo = "./../assets/images/logo.png";
+        let logo = "assets/images/logo.png";
         return <nav className="main-nav">
             <img className="logo" src={logo} />
             <section className="main-mobile-nav-container">
