@@ -57,7 +57,7 @@ function addNote(note) {
                 backgroundColor: "#fff8dc"
             }
             break;
-        case "noteImg":
+        case "noteImage":
             info = {
                 title: note.textInput,
                 url: note.urlInput,
