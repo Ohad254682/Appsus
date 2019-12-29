@@ -1,12 +1,23 @@
 export const notesData = [
     {
-        type: "noteText",
+        type: "noteVideo",
         isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
-            txt: "Fullstack Me Baby!"
+            label: "You won't believe it:",
+            url: "https://www.youtube.com/embed/F3EsDDp4VXg"
         },
-        id: '111aamkabb'
+        id: '111anbva22dd'
+    },
+    {
+        type: "noteVideo",
+        isPinned: false,
+        info: {
+            backgroundColor: "#fff8dc",
+            label: "Be a Better Developer",
+            url: "https://www.youtube.com/embed/H7X25hZ1Pq8"
+        },
+        id: '111aaaaaaaa22dd'
     },
     {
         type: "noteImg",
@@ -36,8 +47,8 @@ export const notesData = [
         isPinned: false,
         info: {
             backgroundColor: "#fff8dc",
-            label: "You won't believe what happens next:",
-            url: "https://www.youtube.com/embed/F3EsDDp4VXg"
+            label: "React Router Tutorial",
+            url: "https://www.youtube.com/embed/Law7wfdg_ls"
         },
         id: '111zxaa22dd'
     },
@@ -59,25 +70,7 @@ export const notesData = [
             title: "Me playing Mi"
         },
         id: '111iuiuiaaacc'
-    },
-    {
-        type: "noteVideo",
-        isPinned: false,
-        info: {
-            backgroundColor: "#fff8dc",
-            label: "You won't believe what happens next:",
-            url: "https://www.youtube.com/embed/F3EsDDp4VXg"
-        },
-        id: '111anbva22dd'
-    },
-    {
-        type: "noteVideo",
-        isPinned: false,
-        info: {
-            backgroundColor: "#fff8dc",
-            label: "You won't believe what happens next:",
-            url: "https://www.youtube.com/embed/F3EsDDp4VXg"
-        },
-        id: '111aaaaaaaa22dd'
     }
 ]
+
+   
