@@ -5,15 +5,22 @@ export default class LongTxt extends React.Component {
     }
 
     getText = () => {
-        return (this.state.isLongTxtShown) ? this.props.text : this.props.text.substring(0, this.props.shortLength);
+        return this.props.text.length <= this.props.shortLength ? this.props.text :
+            (this.state.isLongTxtShown ? this.props.text.slice(0, this.props.shortLength) + '...' : this.props.text);
     }
 
-    handleReadMore = () => {
+    handleReadMore = (ev) => {
         this.setState(prevState => ({ isLongTxtShown: !prevState.isLongTxtShown }))
+        ev.stopPropagation();
+    }
+
+    getToggleLinkStr = () => {
+        return this.props.text.length <= this.props.shortLength ? '' :
+            <span className="read-more" onClick={this.handleReadMore}>
+                {this.state.isLongTxtShown ? 'Show More' : 'Show Less'}</span>;
     }
 
     render() {
-        return (
-            <span className="read-more" onClick={this.handleReadMore}>{this.getText()}<span className="read-more-button"> ...Read More</span></span>)
+        return (<p>{this.getText()}{this.getToggleLinkStr()}</p>);
     }
 }

@@ -49,7 +49,7 @@ export default class AddNote extends React.Component {
 
                     <select name="type" title="Change Type" value={this.state.type} onChange={this.onInputChange}>
                         <option name="noteText" value="noteText">A</option>
-                        <option name="noteTodos" value="noteTodos">🖹</option>
+                        <option name="noteTodos" value="noteTodos">✅</option>
                         <option name="noteImg" value="noteImg">🖼</option>
                         <option name="noteVideo" value="noteVideo">🎬</option>
                     </select>
