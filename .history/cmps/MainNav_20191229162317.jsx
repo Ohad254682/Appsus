@@ -12,17 +12,15 @@ export default class MainNav extends React.Component {
     }
 
     closeMobileMenu = () => {
-        if (window.innerWidth <= 700) this.setState({ menuShown: false });
+        if (window.innerWidth <= 700) this.setState({ menuShown: false })
     }
 
     setToFlexOnExpand = () => {
-        if (window.innerWidth > 700) this.setState({ menuShown: true });
-        if (window.innerWidth <= 700) this.setState({ menuShown: false });
+        if (window.innerWidth > 700) this.setState({ menuShown: true })
     }
 
-    onToggleMenu = (ev) => {
+    onToggleMenu = () => {
         this.setState((prevState) => ({ menuShown: !prevState.menuShown }))
-        ev.stopPropagation();
     }
 
 
@@ -31,7 +29,7 @@ export default class MainNav extends React.Component {
         let logo = "assets/images/logo.png";
         return <nav className="main-nav">
             <img className="logo" src={logo} />
-            {!this.state.menuShown && <button className="menu-btn-mobile" onClick={this.onToggleMenu}>☰</button>}
+            <button className="menu-btn-mobile" onClick={this.onToggleMenu}>☰</button>
             <ul className={this.state.menuShown ? "main-nav-container flex" : "main-nav-container none"} >
                 <li>
                     <NavLink onClick={(ev) => ev.stopPropagation()} exact to='/' activeClassName="active-link">E-Mails</NavLink>

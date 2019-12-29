@@ -69,16 +69,6 @@ button {
     cursor: pointer;
 }
 
-/*Utils*/
-
-.main-nav-container.none{
-    display:none;
-}
-
-.main-nav-container.flex{
-    display:flex;
-}
-
 /* Layout */
 
 .container {
@@ -110,11 +100,11 @@ button {
     align-items: center;
 }
 
-.main-nav-container {
+.main-nav ul {
     display: flex;
 }
 
-.main-nav-container li {
+.main-nav ul li {
     margin-left: 15px;
 }
 
@@ -126,14 +116,20 @@ img.logo {
     width: 70px;
 }
 
-.menu-btn-mobile{
-    background-color:transparent;
-    color:#72559f;
-    font-size: 2rem;
-    border:0px;
+.main-nav-container{
+    position:fixed;
+    flex-direction:column;
+    justify-content:space-around;
+    align-content:flex-start;
     display:none;
+    height: 168px;
+    width:100%;
+    z-index:1;
+    top: 0px;
+    left: 90%;
+    margin-top: 0px;
+    box-sizing: border-box;
 }
-
 
 /* Mails */
 
@@ -670,35 +666,3 @@ input[type="url"] {
         grid-template-columns: repeat(1, minmax(250px, 400px));
         grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
     }
-}
-
-
-@media (max-width:700px){
-    .main-nav-container{
-        position:fixed;
-        flex-direction:column;
-        justify-content:space-around;
-        align-content:flex-start;
-        display:none;
-        height: 168px;
-        width:100%;
-        background-color: rgb(114, 85, 159,0.8);
-        z-index:2;
-        border-radius: 15px;
-        top: 0px;
-        left: 80%;
-        margin-top: 0px;
-        box-sizing: border-box;
-        color:rgb(40, 6, 92);
-        text-shadow: white 0px 0px 11px;
-    }
-
-    .menu-btn-mobile{
-        display:inline;
-    }
-
-    .active-link {
-        color: white;
-    }
-
-}
