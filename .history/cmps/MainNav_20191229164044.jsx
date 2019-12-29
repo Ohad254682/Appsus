@@ -37,7 +37,7 @@ export default class MainNav extends React.Component {
                     <NavLink  exact to='/' activeClassName="active-link">E-Mails</NavLink>
                 </li>
                 <li>
-                    <NavLink  to='/notes' activeClassName="active-link">Notes</NavLink>
+                    <NavLink onClick={(ev) => ev.stopPropagation()} to='/notes' activeClassName="active-link">Notes</NavLink>
                 </li>
             </ul>
         </nav >
