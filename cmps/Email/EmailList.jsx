@@ -5,7 +5,8 @@ export default function EmailList(props) {
 
     return <React.Fragment>
         <EmailSearch setFilterBy={props.setFilterBy} emails={props.emails}></EmailSearch>
-        Sort By: <button onClick={props.onSortBySentAt}>Sent At</button> <button onClick={props.onSortBySubject}>Subject</button>
+        <span className="sort-title">Sort By </span>
+        <button className="side-nav-btn" onClick={props.onSortBySentAt}>Sent At</button> <button className="side-nav-btn" onClick={props.onSortBySubject}>Subject</button>
         <table>
             <tbody>
         {props.emails.map((email, i) => {

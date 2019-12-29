@@ -11,7 +11,7 @@ export default {
     addNote,
     deleteNote,
     editNoteColor,
-    isPinned,
+    togglePinned,
     copyNote,
     editNote,
     addTodo,
@@ -110,15 +110,16 @@ function copyNote(noteId) {
     return Promise.resolve(copiedNote)
 }
 
-function isPinned(noteId) {
-    let note = getNoteById(noteId)
-    if (!note.isPinned) { note.isPinned = true }
-    else note.isPinned = false
-    gNotes = [...gNotes];
-    gNotes.unshift(note);
+function togglePinned(note) {
+    note.isPinned = !note.isPinned 
+    gNotes = gNotes.map(currNote => currNote.id === note.id ? note : currNote);
+    console.log(note);
     storageService.store('gNotes', gNotes);
-    return Promise.resolve(true)
+    console.log(gNotes);
+    
+    return Promise.resolve()
 }
+
 function editNote(id, text) {
     let editNote = gNotes.find(note => note.id === id)
 

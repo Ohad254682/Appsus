@@ -15,7 +15,7 @@ export default class Image extends React.Component  {
 
     
     render() {
-        console.log(this.props.note.info.url);
+        // console.log(this.props.note.info.url);
         return <div>
             <input className="textarea-note" type="text" name="textarea" onChange={this.onChangeInput} value={this.state.textarea} disabled={this.props.isEditMode ? false : true}></input>
             <img src={this.props.note.info.url} />

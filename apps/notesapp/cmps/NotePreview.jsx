@@ -6,14 +6,14 @@ export default class NotePreview extends React.Component {
     state = {
         isEditMode: false,
         colorMode: false,
-        isPinned: false,
+        // isPinned: this.props.note.isPinned,
         currNote: null,
     }
 
     componentDidMount() {
-        if (this.props.note.isPinned) {
-            this.setState({ isPinned: true })
-        }
+        // if (this.props.note.isPinned) {
+        //     this.setState({ isPinned: true })
+        // }
     }
 
     onIconOfNote = () => {
@@ -50,7 +50,12 @@ export default class NotePreview extends React.Component {
     }
 
     onTogglePinned = () => {
-        this.setState(prevState => ({ isPinned: !prevState.isPinned }))
+        let { note } = this.props;
+        // this.setState(prevState => ({ isPinned: !prevState.isPinned }))
+
+        this.props.onTogglePinned(note)
+        console.log(note);
+        
     }
 
     onChangeColor = () => {
@@ -66,10 +71,10 @@ export default class NotePreview extends React.Component {
 
     render() {
         if (!this.props.note) return null;
-        let pinnedOrder = (this.state.isPinned ? -1 : 0)
-        let pinnedBorder = (this.state.isPinned ? '2px solid green' : 'none')
-        let pinnedBoxShadow = (this.state.isPinned ? 'box-shadow: 0px 0px 4px 0px green' : '')
-        let pinnedIcon = (this.state.isPinned ? '#e3e3e3' : 'transparent')
+        let pinnedOrder = (this.props.note.isPinned ? -1 : 0)
+        let pinnedBorder = (this.props.note.isPinned ? '2px solid green' : 'none')
+        let pinnedBoxShadow = (this.props.note.isPinned ? 'box-shadow: 0px 0px 4px 0px green' : '')
+        let pinnedIcon = (this.props.note.isPinned ? '#e3e3e3' : 'transparent')
         let type = this.props.note.type;
         let note = this.props.note;
 

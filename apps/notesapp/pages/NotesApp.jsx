@@ -17,16 +17,16 @@ export default class NotesApp extends React.Component {
 
     onSelectNote = (note) => {
         this.setState({ currNote: note })
-        console.log('onSelectNote', this.state);
+        // console.log('onSelectNote', this.state);
     }
 
     removeSelectedNote = () => {
         this.setState({ currNote: null })
     }
 
-    isPinned = (noteId) => {
-        noteService.isPinned(noteId);
-        this.onLoadNotes();
+    onTogglePinned = (note) => {
+        console.log(note);        
+        noteService.togglePinned(note).then(()=> this.onLoadNotes());
     }
 
     onCopyNote = (note) => {
@@ -69,7 +69,7 @@ export default class NotesApp extends React.Component {
                     <SearchNote setFilterBy={this.setFilterBy}></SearchNote>
                     <AddNote onAddNote={this.onAddNote} />
                 </header>
-                <NotesList onLoadNotes={this.onLoadNotes} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} onChangeColor={this.onChangeColor} onSelectNote={this.onSelectNote} onCopyNote={this.onCopyNote} />
+                <NotesList onLoadNotes={this.onLoadNotes} setFilterBy={this.setFilterBy} onDeleteNote={this.onDeleteNote} notes={this.state.notes} onAddNote={this.props.onAddNote} onChangeColor={this.onChangeColor} onSelectNote={this.onSelectNote} onCopyNote={this.onCopyNote} onTogglePinned={this.onTogglePinned}/>
             </div>
         </React.Fragment>
     }
