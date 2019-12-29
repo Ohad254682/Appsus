@@ -191,7 +191,7 @@ function toggleToDoIsDone(noteId, todoId) {
     let editTodo = editNote.info.todos.find(todo => todo.id === todoId)
     editTodo.isDone = !editTodo.isDone;
     let todos = editNote.info.todos;
-    todos = todos.map(todo => todo.id === editTodo.id ? editTodo : todo);
+    let todos = todos.map(todo => todo.id === editTodo.id ? editTodo : todo);
     let info = editNote.info;
     info = { ...info, todos };
     editNote = { ...editNote, info };
