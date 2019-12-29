@@ -16,7 +16,7 @@ export default class SearchNote extends React.Component {
     render() {
         return <form>
             <label htmlFor="searchTerm">
-                <input className="search-container searchTerm"  placeholder="search a note" name="searchTerm" type="text" onChange={this.onChangeInput} value={this.state.searchTerm} />
+                <input className="search-container searchTerm searchNote"  placeholder="search a note" name="searchTerm" type="text" onChange={this.onChangeInput} value={this.state.searchTerm} />
             </label>
             
         </form>

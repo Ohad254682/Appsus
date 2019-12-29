@@ -16,7 +16,7 @@ export default class EmailSearch extends React.Component {
     render() {
         return <form>
             <label htmlFor="searchTerm">
-                <input className="searchTerm" name="searchTerm" type="text" onChange={this.onChangeInput} value={this.state.searchTerm} />
+                <input className="searchTerm mail-search" name="searchTerm" type="text" onChange={this.onChangeInput} value={this.state.searchTerm} />
             </label>
             
         </form>
