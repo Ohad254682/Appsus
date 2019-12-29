@@ -11,7 +11,7 @@ export default {
     addNote,
     deleteNote,
     editNoteColor,
-    togglePinned,
+    isPinned,
     copyNote,
     editNote,
     addTodo,
@@ -67,7 +67,7 @@ function addNote(note) {
         case "noteTodos":
             info = {
                 label: note.textInput,
-                todos: [{ id: getRandomId(), txt: '', isDone: false }],
+                todos: [{}],
                 backgroundColor: "#fff8dc"
             }
             break;
@@ -110,20 +110,20 @@ function copyNote(noteId) {
     return Promise.resolve(copiedNote)
 }
 
-function togglePinned(note) {
-    note.isPinned = !note.isPinned 
-    gNotes = gNotes.map(currNote => currNote.id === note.id ? note : currNote);
-    console.log(note);
+function isPinned(noteId) {
+    let note = getNoteById(noteId)
+    if (!note.isPinned) { note.isPinned = true }
+    else note.isPinned = false
+    gNotes = [...gNotes];
+    gNotes.unshift(note);
     storageService.store('gNotes', gNotes);
-    console.log(gNotes);
-    
-    return Promise.resolve()
+    return Promise.resolve(true)
 }
 function editNote(noteId, text, todoId) {
     let editNote = gNotes.find(note => note.id === noteId)
 
     let info = editNote.info;
-    let label, txt, title, todos, editTodo;
+    let label, txt, title, todos;
     switch (editNote.type) {
         case 'noteText': txt = text; info = { ...info, txt }; break;
         case 'noteImg': title = text; info = { ...info, title }; break;
@@ -137,8 +137,9 @@ function editNote(noteId, text, todoId) {
                 txt = text;
                 editTodo = { ...editTodo, txt };
                 todos = editNote.info.todos;
-                todos = todos.map(todo => todo.id == editTodo.id ? editTodo : todo);
-                info = { ...info, todos };
+                editNote.info.todos.map(todo => todo.id === editTodo.id ? editTodo : todo);
+
+
             }
             break;
     }
