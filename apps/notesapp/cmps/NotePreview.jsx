@@ -22,7 +22,7 @@ export default class NotePreview extends React.Component {
             case 'noteText': Icon = 'A'; break;
             case "noteImg": Icon = '🖼'; break;
             case "noteTodos": Icon = '🖹'; break;
-            case "noteVideo": Icon = '‣'; break;
+            case "noteVideo": Icon = '🎬'; break;
         }
         return Icon;
     }

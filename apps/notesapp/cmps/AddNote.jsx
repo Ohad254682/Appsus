@@ -38,18 +38,6 @@ export default class AddNote extends React.Component {
         }
     }
 
-    // onFocus() {
-    //     this.setState({
-    //         border: '1px solid blue'
-    //     })
-    // }
-
-    // onBlur() {
-    //     this.setState({
-    //         border: 'transprent'
-    //     })
-    // }
-
     render() {
 
         return <React.Fragment>
@@ -63,7 +51,7 @@ export default class AddNote extends React.Component {
                         <option name="noteText" value="noteText">A</option>
                         <option name="noteTodos" value="noteTodos">🖹</option>
                         <option name="noteImg" value="noteImg">🖼</option>
-                        <option name="noteVideo" value="noteVideo">‣</option>
+                        <option name="noteVideo" value="noteVideo">🎬</option>
                     </select>
                     <button type="submit" title="Create note" className="note-btn green" onClick={this.onAddNote}>+</button>
                 </form>
