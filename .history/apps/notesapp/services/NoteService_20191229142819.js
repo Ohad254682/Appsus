@@ -81,7 +81,7 @@ function addNote(note) {
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [newNote, ...gNotes]
+    gNotes = [...gNotes, newNote]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }

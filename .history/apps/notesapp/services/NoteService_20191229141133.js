@@ -81,7 +81,7 @@ function addNote(note) {
     }
 
     let newNote = new Note(note.type, info)
-    gNotes = [newNote, ...gNotes]
+    gNotes = [...gNotes, newNote]
     storageService.store('gNotes', gNotes)
     return Promise.resolve(newNote)
 }
@@ -188,11 +188,10 @@ function filterNotes(filterBy) {
 
 function toggleToDoIsDone(noteId, todoId) {
     let editNote = gNotes.find(note => note.id === noteId);
-    let editTodo = editNote.info.todos.find(todo => todo.id === todoId)
+    editTodo = editNote.info.todos.find(todo => todo.id === todoId)
     editTodo.isDone = !editTodo.isDone;
     let todos = editNote.info.todos;
     todos = todos.map(todo => todo.id === editTodo.id ? editTodo : todo);
-    let info = editNote.info;
     info = { ...info, todos };
     editNote = { ...editNote, info };
     gNotes = gNotes.map(note => editNote.id === note.id ? editNote : note);
