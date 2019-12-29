@@ -9,7 +9,6 @@ export default class MainNav extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.setToFlexOnExpand);
         window.addEventListener('click', this.closeMobileMenu);
-        if (window.innerWidth <= 700) this.setState({ menuShown: false });
     }
 
     closeMobileMenu = () => {
